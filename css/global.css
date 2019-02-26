@@ -12,3 +12,13 @@ body {
     background: rgb(245, 243, 227);
 }
 
+link {
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        color: green;
+    }
+    
+}
+
