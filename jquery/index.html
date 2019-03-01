@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Demo</title>
+        <style>
+            a.test {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="http://jquery.com/">jQuery</a>
+        <br/>
+        <a href="http://learn.jquery.com">Learn jQuery</a>
+        <script src="jquery-3.3.1.js"></script>
+        <script>
+        $(document).ready(function() {
+            
+            $("a").click(function(event) {
+                //alert("Thanks for visiting");
+                event.preventDefault();
+                $(this).hide("slow");
+            });
+
+            $("a").addClass("test");
+        });
+        </script>
+    </body>
+</html>

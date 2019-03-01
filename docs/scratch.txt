@@ -1,0 +1,458 @@
+
+
+20612954 mArriott
+
+=============================================================
+
+
+
+PORTS:
+namenode:50070
+resourceManager:8088
+accumulo monitor:9995
+spark history server:18080
+grafana:3000
+influxDB admin:8083
+
+http://gaerfield.github.io/ide-shortcuts/
+https://darekkay.com/blog/intellij-idea-shortcuts-for-eclipse-users/
+https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
+
+https://www.youtube.com/watch?v=pkAGG2XstjU
+https://www.youtube.com/watch?v=d-HSOc4RTZA
+https://www.youtube.com/watch?v=eo5iQ8TWv-g
+https://www.youtube.com/watch?v=ulUmA1ApnZU
+https://www.youtube.com/watch?v=XQ-XLUuyqkQ
+https://www.youtube.com/watch?v=Uol0XSSIcrE
+https://www.youtube.com/watch?v=6b1oclOz5ik
+
+
+- Section 1
+	- Title
+	- Section Body
+		- Section 2
+			- content
+			- Section 3
+				- content
+			- (section 3)
+		- (section 2)
+	- (section body)
+- (Section 1)
+
+jQuery & JavaScript Video How-TokenConverter
+	https://www.opensource.gov/providers/safari/9780672337727
+
+jQuery for Beginners
+	https://www.opensource.gov/providers/safari/100000006A0418
+
+Javascript, jQuery and jQuery UI
+	https://www.opensource.gov/providers/safari/9780134433950
+	
+Web Visualization with HTML5, CSS3 and JavaScript
+	https://www.opensource.gov/providers/safari/9781785880971
+
+Learning Path: Full Stack Javascript
+	https://www.opensource.gov/providers/safari/9781786468420
+	
+Building Web Services with Java	
+	https://www.opensource.gov/providers/safari/9781771374545
+	
+RESTful Java Web Services
+	https://www.opensource.gov/providers/safari/9781784399092
+		
+Pro JavaFX 8
+	https://www.opensource.gov/providers/safari/9781430265757
+
+Java 8 Fundamentals: Modern Java Development with Lambdas and Streams
+	https://www.opensource.gov/providers/safari/9780133489354
+	
+Java Concurrency LiveLessions
+	https://www.opensource.gov/providers/safari/9780134070957
+	
+Java 8 - Beyond the basics
+	https://www.opensource.gov/providers/safari/9781771373364
+	
+	
+jim phaneuf
+
+jp plumbing
+
+County Plumbing:
+Clean-out: File Room: 410-222-7049
+
+rh corner  28ft   lefy 11 ft
+
+emer  410-222-8400
+larry parsons - sewer management
+
+
+
+      if (!security.canScan(credentials, tableId, namespaceId, range, columns, ssiList, ssio, authorizations))
+        throw new ThriftSecurityException(credentials.getPrincipal(), SecurityErrorCode.PERMISSION_DENIED);
+		
+		- authenticate(credentials)
+		- hastablePermission(credentials, tableId, namespaceId, TablePermission.READ, true)
+			- if systemUser(credentials) -> true
+			- else _hasTablePermission || _hasNamespacePermission -> true
+			- else -> false
+
+      if (!security.userHasAuthorizations(credentials, authorizations))
+        throw new ThriftSecurityException(credentials.getPrincipal(), SecurityErrorCode.BAD_AUTHORIZATIONS);
+
+		- authenticate(credentials)
+		- isSystem(credentials)
+		- authorizer.isValidAuthorizations(credentials.getPrinciple(), list_of_auths)
+
+        modified:   server/base/src/main/java/org/apache/accumulo/server/security/SecurityOperation.java
+        modified:   server/tserver/src/main/java/org/apache/accumulo/tserver/TabletServer.java
+        modified:   server/tserver/src/main/java/org/apache/accumulo/tserver/TservConstraintEnv.java
+
+
+
+
+IMAP
+imap.gmail.com
+smtp.gmail.com
+jmarkowe@gmail.com
+password
+no check
+
+-----
+
+993
+ssl/tls
+465
+ssl/tls
+
+
+root@uno> scan -t accumulo.metadata -b 3; -e 3< -c loc
+3;row0100 loc:10000e06c970002 []    88012Y:9997	 -> F00003v2.rf, F00003wh.rf, F00003wo.rf, F00003wx.rf
+3;row0200 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0300 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0400 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0500 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0600 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0700 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0800 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+3;row0900 loc:10000e06c970002 []    88012Y:9997	 -> F00003wx.rf
+
+
+F00003v2.rf - 1 entry  
+	row0000
+	row0000
+	
+F00003wh.rf - 1 entry
+	row0001 [public]
+	row0001	[public]
+	
+F00003w0.rf - 1 entry
+	row0001 []
+	row0001 []
+
+F00003wx.rf - 1 entry
+	row0002 []
+	row0999 []
+
+	
+	
+============================================================================================	
+root@uno> createtable baremin
+root@uno baremin> scan -t accumulo.metadata -b 8; -e 8<
+8< loc:1001a96ca110003 []    88012Y:9997
+8< srv:dir []    hdfs://localhost:8020/accumulo/tables/8/default_tablet
+8< srv:lock []    masters/lock/zlock-0000000002$1001a96ca110007
+8< srv:time []    M0
+8< ~tab:~pr []    \x00
+
+root@uno baremin> addsplits -t baremin row100 row200 row300 row400 row500
+root@uno baremin> offline
+
+2018-02-21 15:13:45,346 [shell.Shell] INFO : Offline of table baremin initiated...
+root@uno baremin> notable
+root@uno> scan -t accumulo.metadata -b 8; -e 8<
+8;row100 srv:dir []    hdfs://localhost:8020/accumulo/tables/8/t-00004wt
+8;row100 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8;row100 srv:time []    M0
+8;row100 ~tab:~pr []    \x00
+8;row200 srv:dir []    hdfs://localhost:8020/accumulo/tables/8/t-00004wv
+8;row200 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8;row200 srv:time []    M0
+8;row200 ~tab:~pr []    \x01row100
+8;row300 srv:dir []    hdfs://localhost:8020/accumulo/tables/8/t-00004wr
+8;row300 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8;row300 srv:time []    M0
+8;row300 ~tab:~pr []    \x01row200
+8;row400 srv:dir []    hdfs://localhost:8020/accumulo/tables/8/t-00004ws
+8;row400 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8;row400 srv:time []    M0
+8;row400 ~tab:~pr []    \x01row300
+8;row500 srv:dir []    hdfs://localhost:8020/accumulo/tables/8/t-00004wu
+8;row500 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8;row500 srv:time []    M0
+8;row500 ~tab:~pr []    \x01row400
+8< srv:dir []    hdfs://localhost:8020/accumulo/tables/8/default_tablet
+8< srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+8< srv:time []    M0
+8< ~tab:~pr []    \x01row500
+=============================================================================================
+
+root@uno> createtable withloc -l group1=fam1;group2=fam2 
+root@uno withloc> offline
+2018-02-21 15:17:50,757 [shell.Shell] INFO : Offline of table withloc initiated...
+root@uno withloc> scan -t accumulo.metadata -b 9; -e 9<
+9< srv:dir []    hdfs://localhost:8020/accumulo/tables/9/default_tablet
+9< srv:lock []    masters/lock/zlock-0000000002$1001a96ca110007
+9< srv:time []    M0
+9< ~tab:~pr []    \x00
+
+root@uno withloc> getgroups
+group1=fam1;group2=fam2
+root@uno withloc> online
+2018-02-21 15:18:28,362 [shell.Shell] INFO : Online of table withloc initiated...
+
+root@uno withloc> scan -t accumulo.metadata -b 9; -e
+9< loc:1001a96ca110003 []    88012Y:9997
+9< srv:dir []    hdfs://localhost:8020/accumulo/tables/9/default_tablet
+9< srv:lock []    masters/lock/zlock-0000000002$1001a96ca110007
+9< srv:time []    M0
+9< ~tab:~pr []    \x00
+
+root@uno withloc> addsplits row1 row2 row3 row4
+root@uno withloc> offline
+2018-02-21 15:18:44,744 [shell.Shell] INFO : Offline of table withloc initiated...
+
+root@uno withloc> scan -t accumulo.metadata -b 9; -e 9<
+9;row1 srv:dir []    hdfs://localhost:8020/accumulo/tables/9/t-00004x3for eac
+9;row1 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+9;row1 srv:time []    M0
+9;row1 ~tab:~pr []    \x00
+9;row2 srv:dir []    hdfs://localhost:8020/accumulo/tables/9/t-00004x4
+9;row2 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+9;row2 srv:time []    M0
+9;row2 ~tab:~pr []    \x01row1
+9;row3 srv:dir []    hdfs://localhost:8020/accumulo/tables/9/t-00004x1
+9;row3 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+9;row3 srv:time []    M0
+9;row3 ~tab:~pr []    \x01row2
+9;row4 srv:dir []    hdfs://localhost:8020/accumulo/tables/9/t-00004x2
+9;row4 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+9;row4 srv:time []    M0
+9;row4 ~tab:~pr []    \x01row3
+9< srv:dir []    hdfs://localhost:8020/accumulo/tables/9/default_tablet
+9< srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+9< srv:time []    M0
+9< ~tab:~pr []    \x01row4
+
+=============================================================================
+
+root@uno withiter> createtable withiter -i ageoffprofile
+
+root@uno withiter> addsplits row1 row2 row3
+root@uno withiter> offline
+
+root@uno withiter> scan -t accumulo.metadata -b a; -e a<
+a;row1 srv:dir []    hdfs://localhost:8020/accumulo/tables/a/t-00004xc
+a;row1 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+a;row1 srv:time []    M0
+a;row1 ~tab:~pr []    \x00
+a;row2 srv:dir []    hdfs://localhost:8020/accumulo/tables/a/t-00004xb
+a;row2 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+a;row2 srv:time []    M0
+a;row2 ~tab:~pr []    \x01row1
+a;row3 srv:dir []    hdfs://localhost:8020/accumulo/tables/a/t-00004xd
+a;row3 srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+a;row3 srv:time []    M0
+a;row3 ~tab:~pr []    \x01row2
+a< srv:dir []    hdfs://localhost:8020/accumulo/tables/a/default_tablet
+a< srv:lock []    tservers/88012Y:9997/zlock-0000000000$1001a96ca110003
+a< srv:time []    M0
+a< ~tab:~pr []    \x01row3
+
+  <modules>
+    <module>assemble</module>
+    <module>core</module>
+    <module>fate</module>
+    <module>iterator-test-harness</module>
+    <module>maven-plugin</module>
+    <module>minicluster</module>
+    <module>proxy</module>
+    <module>server/base</module>
+    <module>server/gc</module>
+    <module>server/master</module>
+    <module>server/monitor</module>
+    <module>server/native</module>
+    <module>server/tracer</module>
+    <module>server/tserver</module>
+    <module>shell</module>
+    <module>start</module>
+    <module>test</module>
+  </modules>
+
+  
+conf name
+start/end date
+location
+venue name
+description
+justification
+registration fee
+exteinated costs (airline, misc, RAC per diem
+entertainment fee
+
+  for july 1 - sep 30
+
+  
+  
+OSCON
+Jul 16 - Jul 19 training/tutorials + conference
+Portland, OR
+Oregon Convention Center
+777 NE Martin Luther King, Jr Blvd
+182/night * 5 = 910
+Flight jul 15 - jul 20  259 + 227 = 486
+per diem = 182 * 3 *546*   + (182*.75 * 2) 273  = 819
+$1895
+( 3624 )
+I am writing to request your approval to attend OSCON, taking place July 16-19, 2018 in Portland, OR. This event is the single most important gathering of experts in open source. It covers all the skills, tools, and business strategies necessary to deepen our knowledge of the key open source technologies we use. You can view the agenda here.
+ 
+At OSCON, I’ll find out how some of the world's most successful companies use open source—and how we can apply what they've learned to [our company]. I’ll learn how to implement the latest trends, best practices, and strategic thinking. And I’ll discover new approaches and useful tools, tips, and technologies that may help us become more efficient, more effective, and rely less on outsourced expertise.
+
+Many of the presentations at OSCON are clearly aligned with our goals—or specifically address some of our biggest challenges. I plan to attend the following sessions and report back on my findings:
+
+[List Titles of Sessions and/or Tutorials you plan to attend]
+
+The Platinum and Gold passes include access to a rich variety of in-depth learning opportunities, sessions, and keynotes, as well as networking activities, receptions, and the Expo Hall. The Video Compilation that I can review with others and the 90-day Safari membership included in the pass will provide additional learning resources even after the conference ends.
+
+
+
+
+
+
+recovery codes:
+
+b5bb8-6b693 
+fd28e-7cfe6 
+a51dc-eaaf0 
+73208-6d061 
+40abf-1428b 
+f8588-6a990 
+e01dc-c3234 
+5258d-02c67 
+87f1f-84a65 
+6e4bd-d60c9 
+eb8d2-4bbe9 
+7ece8-6f590 
+d8224-ded8e 
+f4e98-80807 
+a6845-1d28e 
+09897-2f14a
+
+
+
+-------------------------------------------------------
+
+          int idleCompactionsToStart = Math.max(1,
+              getConfiguration().getCount(Property.TSERV_MAJC_MAXCONCURRENT) / 2);
+
+          if (numMajorCompactionsInProgress < idleCompactionsToStart) {
+            // system is not major compacting, can schedule some
+            // idle compactions
+            iter = copyOnlineTablets.entrySet().iterator();
+
+            while (iter.hasNext() && numMajorCompactionsInProgress < idleCompactionsToStart) {
+              Entry<KeyExtent,Tablet> entry = iter.next();
+              Tablet tablet = entry.getValue();
+
+              if (tablet.initiateMajorCompaction(MajorCompactionReason.IDLE)) {
+                numMajorCompactionsInProgress++;
+              }
+            }
+          }
+		  
+		  
+		  mark@88012Y ~/dev/accumulo (ACCUMULO-4808) $ git diff master --stat
+ core/src/main/java/org/apache/accumulo/core/client/admin/NewTableConfiguration.java    | 23 +++++++++++++++++++++++
+ core/src/main/java/org/apache/accumulo/core/client/admin/TableOperations.java          |  7 +++++++
+ core/src/main/java/org/apache/accumulo/core/client/impl/ClientConfConverter.java       | 39 +++++++++++++--------------------------
+ core/src/main/java/org/apache/accumulo/core/client/impl/TableOperationsImpl.java       | 96 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------
+ core/src/main/java/org/apache/accumulo/core/client/impl/thrift/TableOperation.java     |  5 ++++-
+ core/src/main/java/org/apache/accumulo/core/client/mock/MockTableOperations.java       |  6 ++++++
+ core/src/main/java/org/apache/accumulo/core/conf/Property.java                         | 10 ++++++----
+ core/src/main/java/org/apache/accumulo/core/master/thrift/FateOperation.java           |  5 ++++-
+ core/src/test/java/org/apache/accumulo/core/client/impl/TableOperationsHelperTest.java |  6 ++++++
+ server/master/src/main/java/org/apache/accumulo/master/FateServiceHandler.java         | 22 ++++++++++++++++++++++
+ server/master/src/main/java/org/apache/accumulo/master/tableOps/FinishCreateTable.java |  7 ++++++-
+ server/master/src/main/java/org/apache/accumulo/master/tableOps/PopulateZookeeper.java |  9 ++++++++-
+ shell/src/main/java/org/apache/accumulo/shell/commands/CreateTableCommand.java         | 10 +++++++++-
+ test/src/main/java/org/apache/accumulo/test/NewTableConfigurationIT.java               | 54 +++++++++++++++++++++++++++++++++++++++++++++++++++++-
+
+ ===================================================
+ 
+  -DskipTests -Dfindbugs.skip -Dcheckstyle.skip -Dformatter.skip -Ddep.analyze.skip -Dmaven.javadoc.skip -Dimpsort.skip -Drat.skip -Daccumulo.skip -Dapilyzer.skip
+  
+  
+  [ERROR] Tests run: 13, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 2,237.334 s <<< FAILURE! - in org.apache.accumulo.test.functional.ReadWriteIT
+[ERROR] localityGroupPerf(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.033 s  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 360 seconds
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:224)
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:205)
+        at org.apache.accumulo.test.functional.ReadWriteIT.localityGroupPerf(ReadWriteIT.java:393)
+
+[ERROR] localityGroupPerf(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.033 s  <<< ERROR!
+java.lang.Exception: Appears to be stuck in thread Time-limited test-SendThread(88012Y:37639)
+
+[ERROR] multiTableTest(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.003 s  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 360 seconds
+        at org.apache.accumulo.test.functional.ReadWriteIT.multiTableTest(ReadWriteIT.java:327)
+
+[ERROR] multiTableTest(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.005 s  <<< ERROR!
+java.lang.Exception: Appears to be stuck in thread Thread-123
+
+[ERROR] sunnyLGUsingNewTableConfiguration(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.008 s  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 360 seconds
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:224)
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:205)
+        at org.apache.accumulo.test.functional.ReadWriteIT.verifyLocalityGroupsInRFile(ReadWriteIT.java:448)
+        at org.apache.accumulo.test.functional.ReadWriteIT.sunnyLGUsingNewTableConfiguration(ReadWriteIT.java:443)
+
+[ERROR] sunnyLGUsingNewTableConfiguration(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.009 s  <<< ERROR!
+java.lang.Exception: Appears to be stuck in thread Time-limited test-SendThread(88012Y:34366)
+
+[ERROR] localityGroupChange(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.009 s  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 360 seconds
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:224)
+        at org.apache.accumulo.test.functional.ReadWriteIT.ingest(ReadWriteIT.java:205)
+        at org.apache.accumulo.test.functional.ReadWriteIT.localityGroupChange(ReadWriteIT.java:498)
+
+[ERROR] localityGroupChange(org.apache.accumulo.test.functional.ReadWriteIT)  Time elapsed: 360.01 s  <<< ERROR!
+java.lang.Exception: Appears to be stuck in thread Time-limited test-SendThread(88012Y:34975)
+
+		
+==================================================
+
+I usually check out the upstream branch locally first (making sure it is up-to-date with the remote using `git remote update` or `git pull` or fetch/merge or whatever), then merge my feature branch into that.
+
+I would probably do:
+
+git remote update
+git remote prune $(git remote)
+git checkout 1.8
+git merge upstream/1.8 --ff-only
+git merge myBranch
+#optionally rebase/squash here
+git checkout master
+git merge upstream/master --ff-only
+git merge 1.8
+git push upstream : --dry-run
+# review, and re-run without --dry-run
+
+(I never actually do --ff-only... I just keep that branch in sync with upstream, so it will always be ff)
+The prune I do regularly, so I delete any local branches for stuff that has been removed remotely.
+git remote update is the same as git fetch --all; I never do git pull... only fetches and merge explicitly.
+Another useful command is:
+git branch -vv; it shows how many commits ahead/behind you are to the remote tracking branch and is good for a sanity check while merging between branches and before pushing.
+You can also do the first half (merging into the 1.8 branch) from the UI. Then, you only need to do the merge forward into the master branch (resolving conflicts) locally.
+The UI can squash and you can tweak the log message adding the PR number to the log message.
+If I do that locally, I would probably do git commit --amend after merging and interactive rebase or manual squash.
+
+========================================================
