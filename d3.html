@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>D3 Links</title>
+  <script src="../jquery/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="../js/scripts.js"></script>
+  <link rel="stylesheet" href="../css/global.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .myclass{
+            color:'red'
+        }
+    </style>
+</head>
+  
+<body>
+  
+    <div>
+        <p id="id1"></p>
+    </div>
+    <p id="id2"></p>  
+    
+    <div id="id5">
+    </div>
+    
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    
+    <p id="p1">Third paragraph</p>
+    <p id="p2">Fourth paragraph</p>
+    
+    <p class="myclass ">Fifth paragraph</p>
+    <p>Sixth paragraph</p>
+    <p class="myclass ">Seventh paragraph</p>    
+    
+    <p id="id6">This paragraph should have been removed</p>
+    
+    <table>
+    <tr><td>One</td><td>Two</td></tr>
+    <tr><td>Three</td><td>Four</td></tr>
+    </table>    
+    
+    <script>
+        d3.select("body").append("p").attr("id", "id4").text("This paragraph added using append and text");
+        d3.select("#id5").insert("p").text("Added using insert and text");
+        d3.select("#id1").text("This paragraph.created with d3.text()")
+        d3.select("p").style("color", "green");
+        d3.select("#p2").style("color", "blue");
+        d3.selectAll(".myclass ").style('color','purple');
+        d3.select("tr").selectAll("td").style('background-color','yellow');
+        d3.select("#id6").remove();
+    </script>
+</body>
+</html
