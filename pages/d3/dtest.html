@@ -7,17 +7,28 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
-    <p>hi</p>
-    
+    <p>Hello? Am I green?</p>
+      
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="32" fill="blue" stroke="gray" stroke-width="2"/>
+      </svg>  
 
   <script>
     d3.select("p").style("color", "green");
-    var data = [{x: 100, y: 100}, {x: 200, y: 200}, {x: 300, y: 300}]
-    
+      
     var svg = d3.select("body")
     .append("svg")
-    .attr("width", '800px')
-    .attr("height", '800px')();
-  
+    .attr("width", '400px')
+    .attr("height", '400px');
+      
+    var data = [{x: 100, y: 100}, {x: 200, y: 200}, {x: 300, y: 300}]
+
+    svg.selectAll(".circleClass")
+        .data(data)
+        .enter().append("circle")
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; }) 
+        .attr("r", 5);
+      </script>
   </body>
 </html>
