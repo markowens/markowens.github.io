@@ -1,0 +1,167 @@
+- In this video, we'll be talking about
+commonly used string functions in Python.
+So, by the end of this video,
+you should be able to use Python string
+library functions to manipulate strings.
+Although we'll be talking through a lot
+of common string functions in this video,
+I really wanna stress that there are many string functions.
+So if you're trying to do something with a string,
+check the library documentation first.
+There's probably a function already written
+which you know is almost exactly what you want.
+For now, let's check out some of these common functions.
+If you wanna change case,
+there are two methods which can help.
+First, you can use the method lower.
+Lower returns a string which has
+all the original characters from the original string
+but now in lowercase.
+Remember, strings are immutable,
+so all the functions we'll discussing
+in this video return new strings.
+Just like the function, lower,
+there's also a function upper,
+which will return all the characters
+from the original string but now in uppercase.
+Suppose you wanna stitch two strings together.
+You can do this with concatenation.
+You'll start doing this with a plus symbol.
+Here we add the string, one,
+with the string, two,
+to get the string 12.
+Likewise, if we add the string, hi,
+to the string, there, we get hi there.
+Notice that the string, there, has a space before the t,
+which is why the result had a space between the I and the t.
+Suppose that we'd like to have
+a string repeat over and over.
+To do that, we'd use replication.
+In this example, we're asking the string 12,
+to be replicated twice to form the string, 1212.
+You can combine replication and concatenation like this
+in order to build more complex strings.
+The next function, strip,
+is incredibly valuable in Data Science.
+You'll often find you have useless white space.
+Like spaces or new lines around values
+that you wanna use for analysis.
+To get rid of those spaces,
+you can use strip like in this example.
+Here, strip gets rid of the new line
+and the spaces, before and after the word, extras.
+But you won't always be getting rid of spaces.
+So you can use the parameter to strip
+to get rid of the other values.
+Here we have some garbage asterisks
+on either side of the number 10.
+To get rid of those, we just feed in a string
+with the characters we want removed
+as an argument to strip here.
+Notice that the string passed as an argument
+is an asterisk which is why the strip removed asterisks.
+Sometimes you have a single big string
+that you'd like to break up into smaller sub-strings.
+We haven't learned about lists just yet.
+But for now, lists hold more than one element.
+In this example, we've used split
+to split out the words in this sentence using white space.
+To do that, we gave a space
+as the argument to this function split.
+Next, we see how you could do the same thing
+with a comma separated value.
+Suppose this is a movie rating.
+Jane Doe rated the movie, Cars, with five stars.
+And that rating is stored with commas between the fields.
+Calling split with the argument
+as a comma will do this for you.
+When we index into strings to get back sub strings,
+this is called slicing.
+For each of the examples we'll
+be working with the word hello.
+I have broken up the characters
+in the word hello and label them
+with a character index
+starting with zero for the letter H.
+If we ask for characters one through three,
+that means we want characters
+from one inclusive to three exclusive.
+So we get back the characters EL.
+If we ask for four through seven,
+you might think this will cause an error.
+But it'll just select the string starting
+at four through the end of the word.
+In this last example, we'll use negative indexes.
+It's sometimes easier to start from the back of a word,
+when putting on a sub string.
+The indexes for that are shown here.
+These indices correspond to these locations
+because if an index is negative,
+the new index is calculated as
+string length plus index.
+So for minus one, five plus a negative one is four.
+Going back to our original idea,
+trying to get a sub-string from the word
+using minus four to minus one.
+This will give us back e-l-l.
+This is the same as asking for a word, one through four.
+What if you wanna ask to see if a string contains a word?
+There're two easy ways to do this.
+In the first, we'll just ask if HE, both capitalized,
+is in the word and we'll get back false.
+If we ask with a proper case,
+a capital h and a lowercase e,
+if that was in the word, we'd get back true.
+Suppose that you wanna know where
+in the string to find the sub string.
+You can use the method find.
+It returns either the lowest start index
+of the sub string or minus one if the sub string is missing.
+Here we ask for e and l and get back
+the start location of e,
+which is one.
+This can be useful when combined with slicing
+because you can find the initial location of a sub string
+and then pull out characters starting from there.
+As we'll be working with both text and numerical data
+in this course, it's worth mentioning that we can
+convert from strings to numbers fairly easily.
+Suppose that we have the string 1234,
+we can convert that to an int
+by calling the int function.
+Likewise, if we have the string 1234
+and we call the function float on it,
+we get back the floating point version of 1234.
+On the other hand, if we have text in a string,
+and try and convert it to an integer,
+well, we'll get an error.
+Lastly, you may have a large body of text.
+And just wanna insert some strings into that larger string.
+To do that we can use the function format.
+In this first example, notice the empty brackets.
+Those are placeholders which we use by the format function.
+Once we call format, it substitutes the word data
+in for the first placeholder
+and the word analysis for the second.
+If you wanna be more specific about the placeholders,
+you can number them.
+This means that the zero placeholder
+takes the first word and the one placeholder
+takes the second and so on.
+This becomes more useful when you have input data,
+which is in a different order
+than the order you want for your string.
+In this last example, we use the numbering
+to flip the word order when called from format.
+This may not seem that useful now,
+but remember you might be getting strings
+which you pass into format from another source.
+And you may not wanna mess around
+with reordering the strings in that input string.
+Okay, we've talked about a bunch
+of string functions in this video.
+Remember, there are even more
+functions to apply onto strings.
+So be sure to check the documentation
+whenever you wanna manipulate strings
+in some particular fashion.

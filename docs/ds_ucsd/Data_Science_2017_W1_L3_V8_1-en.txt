@@ -1,0 +1,89 @@
+- Next, we'll talk about step four, reporting insights.
+After this video you will be able to determine
+what to present in reporting your findings
+and identify techniques to communicate your results.
+The fourth step in our data science process
+is reporting the insights gained from our analysis.
+This is a very important step to communicate your insights
+and make a case for what actions should follow.
+It can change shape based on your audience
+and should not be taken lightly.
+How do we get started?
+The first thing is to look at your results
+and decide what to present.
+Part of that means determining what part of your analysis
+is most important to offer the biggest value
+to your scientific community or your company
+in your industry to your particular audience.
+In deciding what to present,
+you should ask yourself these questions.
+What is my punchline?
+In other words, what are the main results?
+What value do these results provide based on
+the specific domain that I'm working on,
+and the application the question led me to?
+How can the model add to this application?
+In other words, how do the results compare
+to the success criteria determined at the beginning
+of the project for that application's specific purpose?
+You need to include the answers to these questions
+in your report or presentation.
+So, make those questions and answers the main topics
+and be sure to have the data
+or visualizations to back them up.
+Keep in mind that not all of your analysis
+results may be rosy.
+This is often very difficult to communicate.
+Your analysis may show results that are counter
+to what you were hoping to find,
+or results that are inconclusive or puzzling.
+You need to show these results as well.
+Domain experts that you work with may find
+some of these results to be puzzling,
+and inconclusive findings lead to additional analysis.
+Remember that the point of reporting your findings
+is to determine what the next steps should be.
+All findings must be presented so that
+informed decisions can be made.
+If you think about it, the biggest danger
+is to make it seem like your results tell
+a clear story when they actually don't.
+If your conclusions are later found to be wrong,
+your credibility could be seriously damaged.
+Better to tell a complete and true story,
+even if it isn't very clean, than to try to finesse things
+and make them sound more clear than they really are.
+Visualization is an important tool
+in presenting your results.
+The techniques that we discuss and explore in data
+can be used here as well.
+Scatter plots, line graphs, heat maps
+and other types of graphs are effective ways
+to present your results visually.
+You should also have tables with details
+from your analysis as a backup if someone wants
+to take a deeper dive into the results.
+There are many visualization tools that are available.
+Some of the most popular open source ones are listed here,
+including R, a software package for data analysis,
+which has powerful visualization capabilities.
+Python, that we will see in this class,
+is a general purpose programming language,
+or a scripting language, that allows you to use
+a number of packages to support data analysis and graphics.
+D3 is a JavaScript library for producing interactive
+web-based visualizations and data-driven comments.
+Leaflet is a lightweight, mobile-friendly JavaScript library
+to create interactive maps.
+Lastly, Tableau and Google Charts allow you to create
+visualizations in your profiles so you can share them
+or put them on a site or a blog, and they provide
+cross-platform compatibility to mobile devices.
+Timeline is a JavaScript library that allows you
+to create timelines over these results.
+We'll be using tools that connect well
+with Python's Jupyter notebooks,
+and we'll be focusing on visualization in an upcoming week.
+In summary, you want to report your findings
+by presenting your results,
+and visualization tools help you do that effectively.

@@ -1,0 +1,157 @@
+- For the third lesson this week,
+we'll be talking about the UNIX operating system.
+The UNIX command line and the utility commands it offers
+is one of our core tools in any data science project.
+Here, we give you a basic introduction
+to UNIX-based operating systems before we utilize them
+in the context of upcoming lectures and exercises.
+If you're already experienced with a UNIX-based command line
+you may now skip this lesson and jump ahead.
+For the ones who are still here, at the end of this video,
+you will be able to explain what UNIX is,
+understand files and processes,
+visualize the UNIX directory structure,
+and start a UNIX terminal and type your first command.
+Let's start with what is UNIX and why it is important.
+You might be surprised to learn
+that most operating systems today are built on top of UNIX.
+Pretty much all the operating systems except for the ones
+that are based on the Windows operating system.
+Various Linux distributions, Mac 06,
+iOS, and Android
+are just a few popular ones today.
+Here we see a family tree of UNIX-based operating systems.
+This figure alone shows the impact of UNIX.
+Needless to say, this makes UNIX widely adopted in industry.
+In fact, the back end of many data and compute systems
+including industry giants like Facebook and Google
+utilize UNIX.
+As an operating system, UNIX provides
+a very powerful development environment
+built upon composability of small utility programs
+that do one thing very well.
+We call these programs commands.
+Users can build their own commands and programs
+using these commands and some programming syntax,
+or shortly, scripting.
+UNIX is definitely an expected skill
+for most programming jobs, but
+why is it relevant to us as data scientists?
+In addition to being a powerful operating system,
+UNIX provides commands for data search,
+subsetting, and transformation.
+Effective use of these commands
+can help with quick manipulation and analysis of data
+through the command line.
+This can be very helpful,
+especially during exploratory analysis and data preparation.
+UNIX even provides quick ways to chain commands together
+as a simple pipeline.
+In addition, many data science tools
+come with a command line interface
+which requires interaction with the command line
+and execute through the UNIX shell.
+You might find it easier to engage with
+other command line tools and applications
+after having some experience with the UNIX command line,
+so let's get started.
+We'll start by looking at the three main parts
+of the UNIX operating system,
+namely the Kernel, the Shell, and programs.
+The UNIX Shell is the interface
+between the user and the Kernel,
+which acts as a command line interpreter for UNIX.
+Simply, it allows UNIX commands
+and other user-developed programs
+to be executed by the Kernel.
+For example, in the Shell, ls is a UNIX command
+for listing files.
+It will be interpreted by the Shell
+and executed when the user enters return.
+The UNIX Shell starts automatically every time
+a user logs in to a UNIX-like system.
+It accepts commands and makes system calls
+for those commands to be executed.
+It also provides a programming or shell scripting interface
+with the Shell environment.
+To summarize, in UNIX, commands are programs
+that are executed by the Shell.
+Each time the Shell receives a command from the user,
+it communicates the command to the Kernel
+which in turn creates a process
+with a unique identifier to run it.
+An important feature of UNIX is that
+everything is represented by a process or a file,
+even the hard drive volumes.
+This is why there is no concept of name drives like Windows.
+A process is an executing program
+identified by a unique process identifier
+that we will often refer to as a PID.
+Files are collections of data
+and are organized in a directory structure.
+Users and running processes create these files.
+Directories actually are just special files
+which contain other files.
+Files are organized in a hierarchical structure
+that looks like an upside-down tree with a root.
+To reach and work with each file,
+we go through what we call paths within the tree structure.
+Paths separate each node of the tree that we are touching
+by a slash character.
+We can start by the root and go through each directory
+separated by a slash to reach each file.
+This is called an absolute path.
+Here we see an example absolute path for foo.txt
+namely, /users/altintas/foo.txt.
+If I use this absolute path, I can reach foo.txt
+anywhere throughout my UNIX-based system.
+Another way to reach foo.txt
+is using relative paths whenever we can.
+If I'm already in my home directory,
+my home directory is altintas under users
+and it's represented by green here,
+I can reach foo.txt under this directory
+directly without listing other directory names.
+This is called a relative path
+as it's relative to the directory we are operating under.
+We refer to the directory we are operating under
+as the working directory.
+So, altintas as the working directory represented in green,
+I can say foo.txt
+or ./foo.txt to reach foo.txt.
+Here dot refers to the working directory.
+Now let's say, I'm in the working directory
+Python for data science.
+Python for data science is shown in yellow here
+and I'm in it as the working directory.
+I'm trying to access foo.txt under altintas.
+I can choose to change my working directory to altintas
+and use the relative path that we have used before,
+or I can use the absolute path for foo.txt.
+However, there's a simpler way to access foo.txt
+in this situation that UNIX offers.
+We will take advantage of the dot dot directory
+which refers to our parent directory.
+Each UNIX directory has a special utility
+that refers to the parent directory of that directory.
+For Python for data science, that directory is altintas.
+The parent directory is represented by double dots
+and we reach foo.txt from Python for data science
+using the parent directory by saying ../foo.txt.
+So we went through absolute paths and relative paths.
+Now I would like to show you another important short-cut
+in the UNIX system, the tilde character.
+Any directory under users, like altintas,
+refers to a specific user's home directory.
+For that user, tilde refers to that home directory.
+I can reach anything under my home directory
+using the tilde character like ~/foo.txt
+or ~altintas/foo.txt.
+Here is a word of caution when you work with relative paths.
+You need to check which directory you are in,
+or when you use a relative path within a running program,
+which directory that program will run in.
+Otherwise you will have errors related to the path.
+A good UNIX command to check the directory is called pwd.
+It stands for print working directory.
+Let's start a UNIX Shell and review what we learned.

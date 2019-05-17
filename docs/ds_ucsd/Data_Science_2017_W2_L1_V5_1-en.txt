@@ -1,0 +1,70 @@
+- [Instructor] Loops are essential
+in nearly every programming language.
+In this video you'll see the basics of loops in Python.
+So at the end of the video you should
+be able to write a Python program which uses a loop.
+In the top here we have some code from C.
+But this probably looks familiar to anyone
+who knows Java or C++ as well.
+What's the equivalent code in Python?
+Overall the syntax is pretty similar.
+But there are some differences.
+Particularly with the for loop itself.
+But first let's notice that
+our print statement here is indented.
+Indenting in Python is the same as putting
+a block of code in brackets in C++ or Java.
+If you're new to Python this lack of brackets
+becomes second nature pretty quickly.
+Second notice that we've combined the start,
+i equals zero and the end i is less than 10
+into one part of the loop right at the end.
+Let's look at how this range function works.
+Range returns the values between start and stop.
+For the start parameter range is inclusive.
+So we'll start with zero.
+For the end parameter it's exclusive so it'll stop
+at one fewer than 10 or nine.
+It will increase by the value in step
+or it will just default to one.
+So as a result this call to range
+will give us the values zero through nine.
+Okay let's see if this is making sense so far.
+What do you think the code above will print?
+If you guess it's gonna print all the even values
+between zero and eight you're correct.
+By setting step to equal two it starts at zero,
+increases by two and then stops before it hits 10.
+So it'll print zero, two, four, six and eight.
+Okay one more.
+I really wanna make sure you're understanding
+how range is working so take a second,
+pause the video and figure out what you
+should put in the missing part of
+this code for the for loop.
+This one was a bit more tricky.
+Bravo if you got it correct.
+And there were a few answers which would produce
+the same result so you don't necessarily
+have to have the exact same as I have here.
+In the solution above we start at two,
+we increase by three and then we stop at 12.
+Though you could replace 12 with 13 or 14
+and actually get the same result.
+So why do we do these additional examples of range?
+Because range can be really useful both
+when first learning Python and when
+we start diving into data analysis.
+For completeness sake I want to point out
+that we can do the same thing a while loop.
+Which may prove valuable in scenarios
+when we don't know when the condition will finish
+or when the increment is more complex.
+The while loop has the standard components you'd expect.
+Here we have the setup i equals two,
+the condition to test which will cause
+the loop to continue as long as it remains true,
+and the updating of a variable which
+is part of the loop condition.
+Let's make sure we're on top of loops
+by having a quick quiz.

@@ -1,0 +1,108 @@
+- In our pipes and filters demo,
+we saw how Unix commands, when chained together
+facilitate complex data manipulations.
+Filtered commands in general give data analysts
+a quick way to inspect and transform data.
+Now, we will review a few more of these commands
+and provide some more examples.
+At the end of this video,
+you will be able to sort, clean, cut
+and explore text data using Unix commands.
+Plot data on the Unix shell
+and use pipes and filters
+for quick data exploration in Unix.
+When we work with text files,
+or outputs of Unix commands,
+we mainly do text data manipulation and searches.
+Some useful commands that help with these goals are,
+grep, cat,
+word count or wc,
+sort and uniq.
+And head, tail,
+cut, sed and find.
+While we talked about the first five of these commands
+in our earlier coding sessions,
+we haven't yet seen the second set of commands listed here.
+The head command is used for listing the first
+n lines of a text file or an input stream.
+Whereas the tail command lists the last n lines.
+The cut command is a very powerful command
+that gives us a way to cut a portion of each line of a file.
+SED or sed, is a stream editor
+that is used to perform basic text transformations
+on an input stream, like a file or input from a pipeline.
+Find will enable us to do quick searches
+in our file system or hierarchy.
+These commands are best learned through examples.
+So let's look at two questions
+we can solve in Unix using such commands.
+Thinking of the text file we had of Shakespeare's works,
+I can try to find out the top words
+used in all his works.
+And maybe even create a plot of the top 15 words.
+I can also focus on my Unix based system
+and look for the top three user IDs
+that run the most processes in my system.
+I can also just transform one of the files,
+like fruits.txt we had,
+to have all capital letters of the same text.
+We will focus on these three questions
+in our upcoming live coding session.
+But let me describe the pipe
+and filter statement for the first question.
+In the first command,
+we redirect standard input to come from Shakespeare.txt.
+Since this file has many words on one line,
+we first focus on the sed command
+to convert each space between words into a new line.
+After this command,
+we should have a standard out stream
+of one word per line and some blank lines
+that existed prior to running this command.
+We then sort this output.
+And remove the remaining blank lines.
+The order of these last commands,
+for sorting and removing the remaining blank lines,
+does not matter since they prepare the output stream
+for the upcoming uniq command.
+Now, we need to find the number of unique words in the file.
+Minus c option for the uniq command gives us the counts
+together with the individual words the counts belong to.
+Now we have the count for each word,
+we need to do a numerical sort
+with the minus nr option for the sort command.
+Finally, we use the head command
+to get the top 15 lines in the output of the sort command.
+And write the output into a file
+called count vs words.
+This long, but effective one line command
+helps us to do a quick data exploration on the shell
+without having to write a big program.
+Think of how many lines of Java or SQL
+you would have used to perform the same operation otherwise.
+Please note that, in a Unix based system,
+other than the Mac OS,
+the sed regular expression
+might look like this,
+which is a lot simpler than mine here.
+It simply says,
+replace every backslash s character, for space,
+with a backslash n character for a new line.
+Next we see a similar usage
+of these commands for our second question.
+We will focus on this one more in our live coding session.
+Lastly, we will use a new command,
+the tr command to convert the contents
+of fruit.txt into all capital letters.
+Next, we will visualize our findings
+to complete our exploratory analysis.
+A simple tool in Unix for plotting is called gnuplot.
+Although we will use matplotlib
+and other more advanced packages in Python
+for visualization in this class.
+I would like to show you one gnutplot example
+to demonstrate what you can do through the shell,
+using gnuplot.
+Now that we reviewed all our commands,
+let's get started with our live coding session
+in Unix on the Unix shell.

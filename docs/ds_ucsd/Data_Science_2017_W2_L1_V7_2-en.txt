@@ -1,0 +1,63 @@
+- In this video, we'll learn how to use conditionals
+in Python.
+So by the end of this video
+you should be able to author python programs
+which use conditionals.
+Let's think back to this loop example
+where we used the range function
+to help us print the even values between zero and nine.
+Let's see how we could have done this using conditionals.
+What do you think I should put here
+to make it print just the even values.
+Take a moment and think about it.
+Okay, to solve this,
+you may need to use 'modulo',
+which you may or may not be that familiar with.
+Modulo produces the remainder of a division
+of two integers.
+Given what you know about modulo,
+pause the video,
+take a moment to think about what you should put
+into this missing line of code,
+and then resume.
+I hope your answer was something like this.
+If you want to know if a value is even
+you just test to see if the remainder
+from dividing that value
+by two, is zero.
+Let's look now at the parts of
+that if statement in Python, in detail.
+The keyword for the conditional 'if' starts the line.
+And that's the one in blue.
+I modulo two equals zero,
+in green, is the condition,
+which resolves to a boolean either true or false.
+And the colon, in orange,
+says to execute the statements indented after this line,
+should that condition be true.
+Let's try solving another question.
+Suppose I want the output to be the output on the left:
+0, 11, 2, 13, 4.
+Effectively, we're printing the even values between
+zero and four,
+and we were printing the odd values plus ten.
+To solve this, you'll need to add an else statement.
+Take a moment, again pause the video,
+think about what you want to put here,
+and then resume.
+Here's the else statement we need to add.
+Notice the else is followed by a colon,
+and everything after the else,
+which is indented,
+will be executed if the if condition is false.
+Let's do one more of these.
+Now we're testing if I modulo three, is zero.
+Notice the new if statement in blue.
+If I modulo three isn't zero,
+we next test to see if it's equal to one using 'else if'.
+Notice that 'else if', from other languages,
+translates to 'e-l-i-f' in Python.
+You should have the tools to use if, else if,
+or else in your Python programs now.
+Our next lesson is on range functions,
+we'll see you soon.

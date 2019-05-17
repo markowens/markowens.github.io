@@ -1,0 +1,95 @@
+- In the last video, we started seeing
+how variables work in Python.
+In this video, we'll start working with objects.
+By the end of this video,
+you should be comfortable with the notion
+that everything in Python is an object.
+Well, what do we mean by objects?
+In programming, an object is something that can
+hold data and often has methods associated with it.
+We'll actually be working with more complex objects
+like lists later this week,
+but for now, just keep in mind that objects hold data.
+In the last video, we saw how this code worked
+with dynamic typing.
+Specifically, x was allowed to be assigned
+both an integer value and a floating point value, but why?
+Well, to figure that out, we're going to have to understand
+that everything in Python is an object.
+For those of you who know C++ or Java,
+you'll be surprised to see that this applies
+to primitive types too.
+In fact, the line x = 3 on the left
+is going to cause a PyIntObject to be created.
+The PyIntObject is going to hold the value of the object,
+in this case three,
+along with other details for Python to work with
+under the hood.
+These features include the type of object,
+the number of references to the object,
+and a bunch of others.
+So let's see how x = 3 might work,
+and we can do this by drawing the memory diagram.
+First, when you say x = 3,
+Python will create a PyIntObject with a value of three
+and then have your variable x point to that object.
+For those of you more versed in the details of programming,
+x is being created on the stack,
+and the PyIntObject with the value of three
+is being created on the heap.
+The stack holds your local variables
+and is managed by your program,
+whereas the heap holds dynamically created data
+and is actually managed by the operating system.
+But don't worry if those terms aren't familiar to you.
+So what happens when we now say x = 4.5?
+First, a PyFloatObject with the value of 4.5
+will be created.
+Then, x will be set to point directly to that
+new PyFloatObject.
+For those of you familiar with C or C++,
+no longer having anything point to an object
+should be a big red flag, because that's lost memory,
+but in Python, that's taken care of for you.
+The garbage collector in Python
+will automatically free the space
+associated with that first PyIntObject
+because nothing is pointed to it anymore.
+Let's walk through another example.
+Here, we'll create a variable x to have a value three.
+The memory model for those two lines of code is below.
+If you're ever curious to know
+if two variables are pointing to the same object,
+you can use the is command.
+In this case, if we run x is y,
+it will return true if they point to the same object
+and false if they do not.
+Since our memory diagram
+has them pointing to different objects,
+we'd hope the answer is false.
+And it is.
+X points to a PyIntObject, and y points to a PyFloatObject.
+You might be thinking but wait,
+these both have a value of three.
+Well, if you want to test for numeric equality,
+you'd use the == operator.
+When we test x == y, we should get back the value true,
+because they both have the same value,
+and that's exactly what we get.
+Now, you might have noticed that I've been writing
+code in the shell format.
+If you want to play with code like I have been,
+just open up your Python shell
+and you can start running commands
+like x = 3, y is 3.0.
+We can test things like we just did.
+For example, x is y will come back as false.
+X == y will come back as true.
+You can print x if you want to see its value.
+Which you can actually just type x instead.
+So feel free to play with your code this way
+as you learn Python.
+Starting next week the course,
+we'll be writing code in Jupyter Notebooks,
+but now, let's continue learning about Python
+in our next video.

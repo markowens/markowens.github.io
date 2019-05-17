@@ -1,0 +1,104 @@
+- We are back in our Unix shell and remember,
+we hit the pwd to see print working directory,
+what directory we are in,
+the ls to see the list of files and folders
+in this directory,
+and we talk about cd to change to another directory,
+but to be able to change to another directory,
+we need to have another directory,
+and in this
+directory, at the moment, we only have two text files.
+How do I know that?
+When I actually list the commands in long form,
+I need to see a D here at the beginning of the line
+if they are directories.
+So, we don't have directories
+in this python for data science, yet.
+So, let's create one.
+The command to create that is called mkdir,
+it stands for make directory.
+So, it's mkdir,
+and I'm making ...
+My first directory, My1stDir, okay.
+So, if I say, "ls" now,
+I'll see My1stDir, my first directory, is here.
+I can now display the contents of this directory
+in long form, and I'll see that there's a D here
+in the beginning of the first line.
+Now, let's also see those hidden files.
+Remember, if you remember from our last video
+the option to see hidden files and folders
+was dash A, you'll combine that with the long option,
+so we'll say "dash, slash."
+You'll say, "ls, dash, la, long and hidden form."
+When we look at that, we see that my first directory
+is a directory, that dot, that stands for
+the parent directory is a directory,
+and dot that stands for
+the current directory is a directory.
+So, now I can move to any of these directories.
+I'll change my directory, cd, into My1stDir.
+If you look inside it, there is nothing, let's clear.
+We are in My1stDir, my first directory,
+and if we ...
+Do the long option ...
+There's nothing.
+So how do we get those hidden files?
+ls minus a.
+So now, if we say ls parent directory
+for this directory under python for data science
+we'll see everything in python for data science,
+and I would like to see the contents
+of fruits.txt in depth,
+python for data science, so we'll say, "cat ../
+"fruits.txt", and we will see the contents of fruits.txt.
+What if I would like to actually copy fruits.txt
+to the directory I'm in right now?
+I can simply use another Unix command, cp,
+that stands for copy,
+cp ...
+../fruits.txt,
+and I would like to copy it to this directory.
+What's the short for this directory is dot.
+So, I said get the fruits.txt
+in my parent directory, slash, ../fruits.txt,
+and bring it here, cp, copy,
+source, and destination.
+Now, if I ls under this directory,
+I'll see that I have a copy of fruits.txt here.
+If I ls the parent directory,
+I have a copy of fruits.txt
+because I literally copied it, I didn't move it.
+If I wanted ...
+To have only one copy of fruits.txt
+in my system, in this directory, I would have just said,
+"move fruits.txt
+"to this directory."
+So, instead, we'll use the move command
+for shakespeare.txt.
+We know the parent directory has shakespeare.txt.
+I can say, "move", and “mv”, another Unix command,
+" ../shakespeare.txt to here."
+Let's clear this so we use the move option, right?
+So, now, when I say "ls",
+I'll see that there's the shakespeare.txt
+and fruits.txt here.
+Just think for a sec
+if I say, "ls ..", for the parent directory,
+what you expect to see in there.
+In particular, would you expect to see
+shakespeare.txt there?
+The answer is no, because instead of copying shakespeare.txt
+we actually literally moved it using the move command.
+Now, in this directory, we have two text files.
+If I wanted to just display all the text files,
+I could use make use of that wildcard option.
+Remember that star character,
+and say, "ls *.txt",
+so what I'm communicating to the shell here is
+I would like to list anything with a .txt option,
+.txt extension.
+So, ls *.txt
+will give me all the text files in this directory.
+So, now that we reviewed our basic commands,
+we can move to the next video.

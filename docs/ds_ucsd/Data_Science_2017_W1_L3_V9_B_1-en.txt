@@ -1,0 +1,9 @@
+- We have now reached the end of our data science process
+description, over the next nine weeks we will use Python
+and Jupiter Notebooks to apply this process to case studies
+while we learn about critical Python libraries,
+that can be used within a data science project.
+At the end of the ten weeks, you can be sure that you will
+be able to add these skills to your resume.
+Hope you have as much fun with Python,
+and data science, as we do.

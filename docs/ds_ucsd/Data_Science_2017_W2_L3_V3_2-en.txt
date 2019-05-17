@@ -1,0 +1,70 @@
+- We ended our last video talking about
+the standard input and output,
+and said we can indeed redirect these to other files.
+In this video we'll learn about how to do just that.
+At the end of this video you will be able to
+Name all three UNIX file descriptors,
+Utilize the redirect operators and
+Explain the difference between "cat" and "more" commands.
+On UNIX and UNIX-like operating systems
+each process started from the command line
+has three file descriptors associated with it.
+Standard input is normally connected to the keyboard.
+Standard output and standard error
+are normally connected to the terminal screen
+from which the application was launched.
+However these file descriptors can be redirected
+to and connected to files IO of other processes and etc.
+To redirect standard input to come from a text file
+instead of the user's keyboard,
+we use the less-than operator.
+So as you see here it's command, less-than operator
+accepts from somefile.
+To redirect standard out we use either
+the greater-than operator or we can use
+the file descriptor explicitly to use 1> as operator.
+File descriptor or FD 1 is optional as the greater-than
+defaults to standard out.
+Here we see command redirecting to afile1 and afile2.
+However to redirect standard error we need to use
+FD2 with the greater-than operator
+which is written as 2> .
+Here we see both standard out and standard error
+redirected using command 2> afile4 and > afile5.
+so that means redirect standard error to afile4
+and standard out to afile5.
+Lastly, we see all three file descriptors
+redirected to different files,
+in this case command is redirected or we should say
+outputs of the command is redirected to one file
+using the green operator with the green filename.
+The error stream coming from the command is redirected
+to another file using 2> and anotherfile together
+under the blue color
+and the command accepts data
+instead of the standard input from yetanotherfile
+which is colored in that brown color,
+together with it's operator.
+An interesting thing about these redirections
+is that they don't need to be in a particular order
+as long as you keep the redirection operator
+together with the filename.
+So that means all those colors
+with their operators should be together.
+In fact even the command name can come last.
+Please also note that the input redirection can be useful
+if you have written a program which expects input
+from the terminal and you want to provide it from a file.
+Doubling the greater-than operator in standard out
+and in standard error redirections will append to the file
+instead of rewriting to the file.
+So in this case we see both command redirecting
+to afile1 and instead of rewriting on the file
+it appends to afile1 and command redirecting
+the error using 2>> to afile3.
+Now we have a third command here
+this one shows a way to redirect
+both standard out and error into the same file.
+The 2>&1 means send 2 output to the same place
+as the fd1 output namely the file called afile.
+So let's review some of these concepts on our command line.

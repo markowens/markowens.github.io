@@ -1,0 +1,332 @@
+...
+Welcome to our-- not our second lecture
+in optimisation problems, but segment two
+of our first lecture.
+The last segment ended with an explanation
+of why an obviously correct solution to the 0/1 knapsack
+problem was computationally intractable.
+I didn't prove it.
+And I'm not going to prove it, but the problem
+is inherently exponential.
+That means that there does not exist
+a solution that is guaranteed to run in better
+than exponential time.
+So what are we to do?
+Well, we could give up, but that's not really
+in our nature.
+We could try an approximate solution.
+And we will look at that.
+Or we could look at an exact solution that's not
+always fast, but is often fast.
+We'll look at that in this lecture, too.
+So now let's look at approximate solutions.
+And in particular, I want to look
+at a class of approximate solution known
+as a greedy algorithm.
+Here it is.
+It's very simple.
+While the knapsack is not full, we put the best available item
+into the knapsack.
+When it's full, we stop.
+We have some contents not guaranteed
+to be optimal, but often pretty good.
+We'd still have a question, though.
+What does it mean to put the best item in?
+What does best mean?
+Is it the most valuable?
+Is it the least expensive?
+Or maybe it's the ratio of the value to the expense
+in some units to be determined.
+Before we look at the algorithm, let's look at an example.
+You're about to sit down to a meal.
+You know how much you value different foods.
+For example, maybe you like donuts a lot more than apples.
+I know I do.
+But you have a calorie budget.
+For example, you don't want the meal
+to consist of more than 800 calories.
+Deciding what to eat is just a knapsack problem.
+You want to maximize the value to your taste buds
+subject to the constraint of, in this case, 800 calories.
+So let's look at a sample menu.
+I've got some food here with pretty arbitrary values.
+The calories are actually pretty accurate.
+Now, let's look at building a program
+that we can use to decide what food we
+should order from this menu.
+Now, as we look at the program, I
+hope you won't be surprised if I start out
+not with an implementation of a greedy algorithm,
+but with a data abstraction, and then a helper function.
+After all, remember that learning
+to be a good programmer is a big part of this course.
+And modularity is a very important aspect
+of good programs.
+All right.
+Let's start with class food here, almost
+nothing of interest here.
+It's a very simple init function.
+Takes the ubiquitous self, the name
+of the food, the value of the food and its weight,
+and stores it in these attributes.
+We've got the usual getters of get value and get cost.
+And we can get the density, which we just talked about,
+by dividing the value by the cost.
+And finally, there's an operation
+that we'll be using to print the values of food.
+
+Now that we know how to make food, we need to make a menu.
+Again, it's very simple.
+It takes in three lists, the names of the food,
+the values of the food, the calories.
+These lists are all the same length.
+And it just iterates through the three lists,
+creating food and putting it into the menu,
+and then returns the menu.
+All right.
+Now that we have these two abstractions,
+let's look at some code that does indeed
+find a set of foods.
+So here's our implementation of a flexible greedy algorithm.
+What makes it flexible?
+This parameter called key function.
+This makes our implementation independent
+of the definition of best.
+All that's required is that key function defines an ordering
+on the elements and items.
+We can then use this ordering to decide what we mean by best.
+We do that here when we sort the items.
+Notice that we use sorted, rather than sort.
+You might recall that sorted is a function that returns a list.
+Whereas, sort sorts the list in place.
+We use the function, because we don't
+want to modify the parameter.
+We don't want to change the menu.
+We want to get a copy.
+And the copy is different in that rather than
+in some arbitrary order, the elements
+are in order going from best to worst.
+Why is it best to worse?
+Because we're reversing it using this parameter.
+And we're using the key function to decide
+which elements are bigger or smaller
+than which other elements.
+Once we've done this, all the way to do here
+is iterate over the list.
+Because we're iterating in order from best to worst, all
+we have to do is keep checking.
+If we have room to put the next item in the list
+into the knapsack, we do it.
+
+And then we go on and continue until we run out of room.
+Once we have the food in the correct order in items copy,
+we then iterate through the list from, in this case,
+best to worst.
+The only other interesting part of the code
+is this piece here, where we decide whether we still
+have room to put it in.
+If we do, we put it in.
+If not, we go get the next one.
+And since we're always looking at the best available,
+when we're done we know we've made the best possible choices
+given our greedy ordering.
+
+Recall that we resorted to using a greedy algorithm
+in the first place, which might or might not
+yield a truly optimal result, because we were
+concerned about efficiency.
+So now, let's see if this algorithm actually
+addresses the problem of exponential complexity.
+All right.
+Here's the same algorithm, but without the comments.
+So things are a little easier to see.
+
+Let's look at it.
+First thing we see here is we're calling sorted.
+That will certainly use some time.
+How much time will it use?
+Well, we know that sorting can be done in n log n time
+and, in fact, is done in roughly n log n time in Python,
+where n is the length of the list of items.
+So we now have a lower bound in the complexity.
+It can't possibly be better than that.
+Could it be worse?
+Well, maybe.
+The other place we have to look at
+is here, where we iterate over it.
+That's the only other place we do anything more than once.
+But that's only order n.
+And we know the n log n plus n is order n log n,
+which mercifully is much less than 2 to the n.
+So indeed, we do have an efficient algorithm here.
+
+All right.
+Let's use this efficient algorithm.
+We'll use it calling test greedy.
+Nothing very interesting here.
+It takes three arguments, the items, the constraint,
+and the key function, what we mean by best,
+and calls greedy, and then prints the result.
+Slightly more interesting is this function
+test greedys, which calls greedy over and over again.
+So the first thing we're going to look at is greedy by value.
+And we notice that it calls test greedy with foods max units
+and the method food dot get value.
+
+Then we look at this one, which is going to go greedy by cost.
+This is slightly more interesting.
+And it's interesting, because the use of lambda.
+
+Let's look at what lambda does.
+And then we'll come back to why we needed to use lambda here.
+Lambda is used to create anonymous functions.
+That is functions that don't have names.
+So think of it as it's an expression.
+The value of the expression is a function.
+The way we write it is we write the word lambda followed
+by a list of arguments, and then an expression using
+those arguments.
+And it returns a function of n arguments.
+And what that function does is evaluate
+the expression on whatever arguments its passed.
+That's a little bit fast.
+Let's look at some examples, which
+should make it easier to understand
+what's going on here.
+So let's first start with the really simplest possible lambda
+expression.
+I'll assign F1 to be lambda x colon x, simply the identity
+function.
+Whatever you pass in, that's what it returns.
+I can now call F1 with 3.
+Gives me 3.
+I can call F1 with a string, because certainly identity
+function is polymorphic.
+
+It works fine.
+All right.
+Let's look at a slightly more complex lambda expression.
+I'll assign this one to F2.
+This will have two arguments, x and y.
+And it will return their sum.
+
+Again, nothing very fancy here.
+So now if I call F2 of x comma y of 2 comma 3, it'll give me 5.
+And I can do this as well, because you'll recall
+that plus is polymorphic.
+It does addition and numbers and concatenation on strings.
+So that makes the new function I've created
+using lambda also polymorphic.
+So I now get AnaBell here.
+All right.
+Finally, let's look at a bit more complicated one.
+We'll call this one F3, lambda x comma y.
+And here, it's going to return the string
+factor if the expression x mod y equals 0.
+That is to say if y is a factor of x.
+
+Otherwise, it will return the string not factor.
+
+So this is a construct you may not have seen before.
+We've seen if then else commands in Python.
+But you can also write if then else expressions
+with this slightly strange syntax
+that I've shown you here.
+So we've now done that.
+So now, we can look at the value of F3 of, say, 4 and 2.
+Sure enough, 2 is a factor of 4.
+Or we could look F3 of 4 and 3.
+
+And discover that 3 is not a factor of 4.
+All right.
+That's lambda expressions.
+
+They're wonderful.
+They're useful.
+You can write amazingly complicated lambda expressions.
+And some people think they're beautiful.
+
+The truth is you shouldn't.
+If the lambda expression is more than just a line, it's too big.
+Go back, use def, and write a function, and do it that way.
+It's really much better.
+OK.
+Going back to greedy, we could ask the question
+why do I use a lambda expression here in the first place?
+Why couldn't I just use get cost as the key function?
+
+Because it would cause the list of items to be sorted from
+most expensive to least expensive, which for most of us
+is actually the inverse of best to worst.
+I suppose there is some affluent people who think
+the more expensive, the better.
+But most people are not in that camp.
+Hence, we use lambda to actually do
+the inverse of get cost in line here.
+OK.
+Let's run it.
+So what's going on here?
+The first few lines just have the names, the values,
+and the calories.
+I then use those to get a menu of foods.
+And finally, we call test greedys
+with a budget of 750 calories to see what we get.
+All right.
+The moment of truth, we'll run it.
+All right.
+Notice what we get is three answers.
+Greedy by value finds a burger, pizza, and wine
+for a total value of 284 units.
+Greedy by cost does better.
+It finds a more complicated menu, apple, wine, Cola, beer,
+and that ever popular donut for 318.
+And as it happens, greedy by density
+finds the same solution.
+
+Why do we get different answers?
+Well, because what we're doing here
+and what all greedy algorithms do
+is they make a set of locally optimal choices.
+That doesn't always give you a globally optimal solution.
+So we can see this with a little hill climbing exercise.
+So we might think that the way you get to the top of the hill
+is by just always going up.
+If you get a chance to go up or down or sideways, you go up.
+And maybe you go up the steepest possible path.
+Well, that works fine if we start, say, here,
+and we find our way to the top.
+But if we start here, we'll find our way up to here.
+And from this point, everything is downhill.
+So we'll just stop.
+So we're here in what's called a local optimum.
+
+And we don't get any better.
+And that's what a greedy algorithm does.
+It might find it optimum, but it won't be the best necessarily.
+Well, in the example we just looked at, greedy by cost
+and greedy by density gave better results
+in the sense of more value for the same number of calories
+as greedy by value did.
+Is it always the case that one is better than the other?
+No.
+You might think greedy by density should always be
+a winner, but it isn't.
+And to show you that let's try another example.
+
+Let's change this 750 to 1,000, see what we get.
+So here, you'll see that, in fact, greedy by value
+is the winner.
+It gave us more value than the other two for that number.
+So there's just no way to tell.
+You get an answer.
+You don't know whether it's optimal.
+So should we use greedy algorithms?
+It is, as Michael Douglas once said, greed, good.
+It's easy to implement.
+It's computationally efficient.
+But it doesn't always yield the best solution.
+We don't even know how good the approximation is.
+How close is it to the best solution?
+So in the next lecture, we'll look
+at what do we do when we really need to have the right answer
+and find out how to get truly optimal solutions.

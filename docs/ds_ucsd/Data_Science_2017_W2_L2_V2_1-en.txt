@@ -1,0 +1,127 @@
+- To be effective in any programming language,
+you'll need effective ways of storing data.
+In this video, you'll learn about
+the list data structure in Python.
+For those of you with experience
+in other programming languages, a list is similar
+to array list in Java, or a vector in C++.
+This just means it is resizeable,
+and has an array implementation underneath the hood.
+So, by the end of this video, you should be able
+to use lists stores to store data, iterate over lists
+using loops, and recognize some common list functions.
+Let's start by creating a list with the values,
+11, 22, and 33.
+Here we create the list, and then check
+that it is holding what we expect.
+List elements have indexes, which, like strings,
+start at zero.
+Here's a visual representation of our list in memory.
+Based on this, if I ask for the element of index one,
+I should get back 22.
+And that's exactly what happens.
+What if I try to access the array off the end like this?
+There is no third element.
+So if we ask for this, we'll get an error.
+Suppose I wanna print all the elements in the list.
+I likely wanna iterate over the list using a loop.
+So let's do that.
+By saying for i in list, I'm asking
+for each element in the list.
+And I can just print that value.
+And here we get back the values we wanted.
+For those of you more familiar with C or Java,
+you could also write this loop like this.
+Here I'm letting i be an index into the list,
+and letting i go from zero, to the length of the list,
+which is three.
+Notice here that len, the len function,
+returns the length of the items in the list.
+As a result, the for loop will then iterate over zero,
+i is zero, i is one, and i is two, before stopping.
+As is printing the element at index zero, one, and two,
+it'll print the same values as above.
+For those of you with a background
+in other iterative languages, the second loop
+may seem more for familiar,
+depending on your programming style.
+But I encourage you to use the top loop,
+as it is less error prone, and more readable.
+Unlike string, you can change the contents
+of the elements of a list.
+Here we're changing the value at index one, to be 95.
+Let's check to see if that did what we expect.
+It did.
+So one of the nice features of our list,
+is the ability to manipulate values in that list.
+I said at the start that lists are resizeable.
+This means that we can append values to the end of the list.
+Let's see how this works.
+We'll start with our usual list.
+Like before, this has three elements.
+Using the append method, we can add an element to this list.
+Here, we'll append an element with a value of 44.
+Visually, this translates to adding the value of 44,
+at index three.
+Let's check the contents of this list,
+after we've used append, and we'll see
+that the element 44 was in fact added to the end.
+You can add elements, but you can also remove them.
+First, the pop method.
+We create our standard list now, with the four elements.
+If we call pop on the list, it will return and remove
+the element at that location in the list.
+Here we're asking to delete the element at position two.
+This will return the element 33,
+and remove the element from the list.
+You'll then shift the values in the remainder
+of the list over by one.
+So our new list will have three elements, let's check.
+Yup, we effectively removed 33 from the list.
+In the last example we used the pop method,
+to remove an element using its index.
+Now, let's remove an element by its value,
+using the remove method.
+Let's remove the element who's value is 33.
+This will remove 33, and like pop, it will then shift
+the values in the remainder of the list over by one.
+So our new list will be those same three elements as before.
+Depending on what you're doing,
+it'll be easier to either use pop, or remove.
+Sometimes, you wanna merge two lists.
+If the merger simply involves adding one list
+to the end of the other, you can use the method extends.
+Let's setup two lists.
+Now let's call the extends method, to make it
+so list two is added to the end of list one.
+Great, this did just what we expect.
+Be careful not to mix up append and extend.
+Append adds an element to the end of the list.
+Extend expands all appends all of the elements
+from one list into the either.
+If you accidentally use append with the list parameter,
+this is what happens.
+You get a list of four elements.
+The first three are integers.
+And the last is a list of three integers.
+This is a pretty common mistake, so be careful.
+Often, you'll be working through two lists at the same time.
+To do that, you can use the function zip.
+So let's create our two lists again.
+Suppose I wanna print the first element in each list,
+then the second element in each, and so on.
+To do that, we can do this.
+When we use zip, that creates a pairing of two lists.
+When you ask for x comma y in zip list list two,
+you'll get back the following x, y pairs.
+We don't have to get into the details now,
+but just remember that if you want to work
+through multiple lists at the same time,
+zip can be pretty useful.
+We've just gone over the more common methods
+to use with lists, but there are plenty more.
+For example, did you know that you can slice lists,
+just like you did with strings.
+If you want more examples,
+be sure to check out the documentation.
+Next, we'll do a quick quiz.

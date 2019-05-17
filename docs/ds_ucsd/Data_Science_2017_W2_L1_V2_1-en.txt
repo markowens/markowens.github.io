@@ -1,0 +1,63 @@
+- In this video, we'll be learning
+about variables in Python.
+The learning goals for this video
+are for you to be able to write simple programs
+in Python and to understand how Python uses dynamic typing.
+Here we have a simple program to print hello
+in C and in Java.
+Notice that there's a lot of extra stuff
+needed beyond just printing,
+particularly for the Java code.
+In contrast, Python only requires
+you to say print hello.
+The simplicity is part of the reason
+that Python is a language of choice,
+both for beginners and for experts.
+One thing to point out,
+for those of you more familiar with other languages,
+is that Python doesn't use semicolons
+at the end of statements.
+That, along with the fact that Python
+uses indentation of code rather than brackets
+will take some getting used to
+for those of you who are more accustomed to other languages.
+Alright, next we'll start using some variables.
+The code on the left likely looks familiar
+to those of you who know C, C++, or Java.
+Or actually, a number of strongly typed languages.
+What I mean by a strongly typed language
+is that each variable has a type associate with it.
+In the code here, we see that both X and Y
+are set to be integers at the time they're declared.
+Let's now look at the equivalent code in Python.
+Again, we don't have the same overhead of declaring main
+or including centered libraries with Python.
+But we can also notice that,
+because Python is a dynamically typed language,
+there are no explicit types for X and Y.
+Now for those of you who are curious about how this works,
+realize that although you don't have to say
+what type of variable it is, there are still types
+behind the scenes with Python.
+Let's take a quick look at some of these types.
+Python has a number of common types.
+And those types are pretty much what you'd expect.
+We have numeric values, including integers and floats.
+Listed values, binary bytes, booleans, and strings.
+We'll be working with a number of these
+in more detail later this week.
+Going back to this notion of dynamic typing,
+if a variable doesn't have a type, how do things work?
+In the code on the left,
+what happens if you try to assign an integer variable
+with a float or double value?
+You get an error.
+But what happens in the Python code on the right
+when you try to assign X to be 4.5?
+X is assigned 4.5 with no error.
+Python is actually totally content with you doing this.
+Why?
+Dynamic typing.
+In our next video, we'll see why this works
+when we start discussing objects in Python.
+We'll see you there.
