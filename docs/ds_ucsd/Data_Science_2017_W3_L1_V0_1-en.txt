@@ -1,0 +1,52 @@
+- This week, we'll kick things off
+with an introduction to working with Jupyter Notebooks.
+You have already seen Jupyter Notebooks
+earlier in the course when we showed you the example
+Sucker Analysis Notebook.
+This week, we'll start building these notebooks together
+and working with them in more depth.
+But first, we'll be discussing why
+we are using Jupyter Notebooks.
+By the end of this video, you should be able to
+describe the features of Jupyter Notebooks,
+which have led to it rapidly gaining broad acceptance
+within the data science community.
+Jupyter offers a number of features
+and we've already mentioned a number of them,
+but let's review them.
+The data science process, in most the steps
+we learned about earlier in the course.
+Jupyter Notebooks allow us to document that process
+by combining notes, code, and graphics.
+Most importantly, combining these features
+allows others to read the notebooks
+and understand the motives behind each step
+and why decisions were made.
+So it's simply good collaboration.
+Going along with the importance of the documentation
+and collaboration, this is also simply good science.
+If someone else wants to examine your results
+or build on your findings,
+they can see exactly how you conducted the research.
+Now, replication and inspection of other's methods
+has been a core element of the scientific process
+for centuries, but the advent of computational tools
+has caused discussion about how to
+best insure such practices
+when conducting science using computing.
+And Jupyter Notebooks aims to do just that.
+Jupyter Notebooks don't just contain your notes and process;
+they contain your results as well.
+You can easily share your the notebook
+in a variety of ways with colleagues
+and present your results alongside the process.
+And lastly, as we mentioned before,
+Jupyter supports Julia, Python, R,
+three of the most popular programming languages
+for conducting data science today,
+along with other languages.
+I personally moved to Jupyter Notebooks
+as soon as I saw what they had to offer,
+and many of my colleagues have made the same switch.
+So this lesson is all about getting you up
+and running with the notebooks.

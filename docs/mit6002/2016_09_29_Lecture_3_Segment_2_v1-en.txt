@@ -1,0 +1,234 @@
+...
+The last segment was rather unusual in that we
+didn't look at any code at all.
+We just talked about graphs in the abstract,
+and I'm sure that made many of you very sad.
+So you should be happy to hear that in this segment,
+we'll spend a lot of time looking at code,
+because essentially it's all about how do we implement
+graphs and digraphs.
+We begin with class node.
+Given how little there is here, you
+might wonder why I even bothered defining this type when
+I could have just as easily-- in fact, more easily--
+used a string as a node.
+The only reason was to leave open
+the possibility of at some later date having
+the more complicated kind of node that has properties
+other than its name, the kind of thing
+we saw when we looked at the Wizard of Oz graph.
+Type edge is a bit more interesting.
+The key design decision here was to allow for the possibility
+of edges having directions.
+This doesn't mean that we can't use this notion of edge
+to create graphs as well as digraphs, as we'll see.
+In fact, let's look right now at digraphs.
+There are two common representations of graphs.
+If the graph is dense, i.e., there are a lot of edges
+relative to the number of nodes, it's
+often convenient to use something
+called an adjacency matrix.
+If you look at this, an adjacency matrix,
+the rows represent the source nodes,
+the columns the destination nodes,
+and there's the cell S, D equals 1
+if there's an edge from S to D and zero otherwise.
+Now, of course, the cells don't have to be zeroes or ones.
+If the edges have weights, these can be used
+as the values of the cells.
+In fact, if there's more than one edge between nodes,
+the cells can be lists.
+That's an adjacency matrix, but that's not
+what we're going to use.
+We're going to something a bit simpler
+called an adjacency list.
+In adjacency list, we associate with each node
+a list of destination nodes.
+Let's look at class digraph here,
+in which we provide an adjacency list implementation.
+We see that digraph is a dictionary
+that maps values of type node to lists of type edge.
+Most of the code, by the way, as you'll see, is error-checking.
+Now, you may think that's bad, but it's not unusual.
+In fact, in real programs, there's often as much code
+to check for errors as there is to deal
+with the non-error cases.
+
+Here's the rest of the implementation of digraph.
+And nothing here should surprise you,
+but maybe you're disappointed that the under bar under bar
+str under bar under bar method is not
+drawing something fancy like the pictures we've been seeing.
+Sorry, but producing pretty representation of graphs
+is actually quite hard, and I didn't want to code it up.
+Fortunately, there are really nice online solutions
+that you can download for Python if you really
+want something pretty.
+There are two common representations of graphs.
+If the graph is dense, i.e., there are a lot of edges
+relative to the number of nodes, it's
+often convenient to use an adjacency matrix.
+What the matrix has is rows, which
+are source nodes, columns, which are destination nodes,
+and the cell with the source and a destination
+is one if there's an edge from S to D and zero otherwise.
+Cells don't have to be zeroes and ones, by the way.
+If the edges have weights, these can
+be used as the values of cells, and if there
+is more than one edge between nodes, the cells can be lists.
+That's an adjacency matrix.
+But that's not what we're going to use.
+We're going to use something simpler
+called an adjacency list.
+In an adjacency list, we associate with each node
+a list of destination nodes.
+Let's go now and look at the code.
+Here is class digraph.
+So what we can see here is that it's got one attribute, edges,
+which is a dictionary mapping each node
+to a list of its children, just what we'd
+expect for an adjacency list.
+Init initializes it to be the empty dictionary.
+Add node checks for errors, and if there is none, adds it.
+Add edge gets the source node, gets the destination node,
+from the edge parameter.
+Again, it checks whether it's there and raises an exception
+if it isn't.
+And if it's not there, it adds it.
+Now, you might be a little bit annoyed
+to see that so much of the code is error-checking,
+but that's not unusual in practice.
+In fact, in industrial code, we often
+see a very large fraction of the code devoted to error-checking.
+All right.
+Let's look at the rest of the implementation.
+Here's part two.
+Again, nothing very striking here.
+It's all pretty obvious.
+You might be disappointed that the under bar under bar
+str under bar under bar method is not drawing something fancy.
+I'm sorry, but I'm kind of lazy, and producing
+pretty representations of graphs is really hard.
+Fortunately, if that's what you want,
+there are nice Python-based solutions online
+that you can easily download.
+Having implemented digraph, implementing graph is trivial.
+We simply override add edge, and what we do is we use digraph
+dot add edge to add two edges, one in each direction.
+Now, this is not necessarily the most space-efficient
+implementation of a graph, but I do like its simplicity.
+Probably the most interesting thing on this slide is here.
+Why is graph a subclass of digraph,
+rather than the other way around?
+
+Well, do you remember the substitution rule from 6.00.1x?
+Well, just in case you don't, I'll remind you.
+If a client code works correctly using instance
+of the supertype, it should also work correctly
+when instance of the subtype is substituted for the instance
+of the supertype.
+Now, I'm going to pause for a second.
+Or maybe you should just pause the tape
+if you're watching this and think about this paragraph
+and make sure it's stuck in your head.
+OK.
+Back from your pause?
+So what we see here is that any program that
+works with a digraph will also work with a graph,
+but not vice versa.
+
+Hence, which is a subtype, and which is a supertype?
+OK.
+Now that we have an implementation of graphs,
+let's look at an important problem
+that we might want to solve with graphs.
+
+This is a problem I've already talked about, the shortest
+path from n1 to n2.
+We talked about it in lots of cases,
+for example, my trip from my home to my office.
+Formally, it says, given a graph,
+find the shortest sequence of edges
+such that the source node of the first edge is n1,
+the destination node of the last edge is n2.
+Anc for any edges e1 and e2 in the sequence,
+if e2 follows e1 in the sequence, the source of e2
+is a destination of e1.
+Now, we can also find the shortest weighted
+this path, which will minimize the sum
+of the weights of the edges in the path,
+assuming there are weights.
+Shortest path problems come up all over the place.
+We've talked about finding a route from one city to another.
+The internet is solving that problem all the time
+as it routes packets in a communication network.
+Biologists or chemists trying to find a path for a molecule
+through a chemical labyrinth essentially solve it.
+It's very common.
+Let's look at an example.
+
+Here's a pictorial representation
+of a not-very-realistic set of airline connections between US
+cities.
+You can go from Boston to Providence and Providence
+to New York, New York to Chicago, et cetera.
+What I want you to notice is that there's
+a cycle in this graph.
+I can go from New York to Chicago
+to Denver, back to New York, and then from New York to Chicago
+to Denver, and back to New York, and I
+can do this as long as I want.
+That's not necessarily a good thing.
+As we'll see, the presence of cycles or the possible presence
+of cycles complicates solving the shortest path problem.
+You'll recall that we didn't have to worry about cycles why
+we looked at search trees earlier, because trees
+don't have cycles.
+You should also notice that it is
+possible to leave Los Angeles but not to get there
+from anywhere, and maybe that Los Angeles is
+a place you can only leave is a good thing, or maybe not.
+
+All right.
+Here's what an adjacency list looks like for this graph.
+Notice that it's quite simple.
+All right.
+Now we've seen what the graph looks like on a slide.
+Let's look at code to build exactly this digraph.
+Quite simple, function call build city graph.
+We start it by initializing g to be type digraph.
+Then for each of the names, I have to create a node
+and add it to g, and then I just add all the edges
+we saw in the adjacency matrix.
+So we can go over here.
+I have code that did that.
+And now let's just print it and see what we get.
+
+So we see if we look at the code,
+it is actually something slightly different from what
+we saw on the slide.
+That's OK.
+I tend to think more clearly when I'm programming than I
+do when I'm making PowerPoint.
+You'll notice that I gave build city graph
+an argument of type graph type.
+Why did I do that?
+Because now when I build it, I can build a digraph
+or I can build a graph.
+Let's see what happens if I build a digraph.
+
+Well, we see over here in the right window
+all of the arcs from my not-very-exciting string
+representation of a graph.
+But suppose I decide that if you can fly from A to B,
+you should be able to fly from B to A.
+It becomes very easy to fix.
+I'll just change this parameter to be of type graph,
+and now I'll run it.
+
+And you'll notice I have twice as many arcs,
+because now, any place I can get to I can go the other way.
+Not very fancy, but pretty useful.
+In the next and last graph theory segment,
+we'll look at two solutions to the shortest path
+problem that use this code.
