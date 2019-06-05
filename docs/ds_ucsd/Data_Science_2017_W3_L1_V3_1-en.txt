@@ -1,0 +1,6 @@
+- We just saw how to run code in a notebook,
+but we haven't used the feature of documenting
+our analysis yet.
+We learn how to do just that in this video.
+By the end of this video you should be able to add
+and format text in Jupyter notebooks.

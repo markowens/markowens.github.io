@@ -1,0 +1,137 @@
+- We will now continue from where we left last video
+by working with yet another cell type
+called markdown cells.
+Let's open a new cell and this time
+we will use the plus tool bar button.
+Here I push plus and I'll see a new
+cell being inserted right below the cell
+that was highlighted.
+We can now click on the cell
+and change the purpose of the cell
+from cell to a markdown by choosing markdown
+from the dropdown menu on the upper right corner
+of this notebook.
+So if we go here,
+push, click on this code markdown
+and instead of code we pick markdown.
+So now this cell when I click on it
+it's a markdown cell
+and it means we can write text in it
+instead of code.
+This is great for documenting your data analysis pipeline.
+I can just say hi and run this,
+and I'll see there's a text there.
+So I can actually go in that cell again,
+on the text, and click on it.
+And get back to that markdown cell mode.
+Although markdown cell is a simple text markup
+designed with simplicity, like a Word editor,
+you can do quite a bit of formatting and beautification
+as well as scientific editing using these markdown cells.
+The markdown cells have support for HTML
+and other text formatting languages like LaTeX
+if you heard of that.
+For example, we can create bullet lists.
+When we actually say here,
+instead of hi, but actually do it a little nicer.
+And then I'll go to the next line
+and I'll say star,
+space.
+Everything I put after this bar space is rendered
+into a bulleted list.
+So I can say
+one fish,
+two fish,
+red fish,
+blue fish
+to quote Dr. Seuss.
+This, when I run this, and I say Shift + Enter
+it's going to create what I just typed
+into a bulleted list.
+So we can, instead of running code,
+we are now rendering HTML
+through this text markup cell.
+You can make many things with it, alright?
+We could also create, for example, titles or headings
+for that we will use
+the hashtag symbol.
+So if we say hashtag, it already shows you
+this is heading one,
+this is a
+markdown cell.
+And
+here
+if you say two hashtags,
+it's gonna make it a little smaller,
+so it's like a heading two in Word.
+It would be
+this is heading two.
+And if we go on and on like that
+three of them, we'll be putting three and onwards.
+So when I say Shift + Enter now
+I'll see these being rendered as I wanted
+which is title, headings, bullet lists and text.
+So we can also do a bold text, boldface text,
+so I'll just say star star example text here
+and if I say Shift + Enter,
+it's gonna format it as bold.
+I can make things italics or emphasize things
+by using an italic font.
+I can say example text here.
+It already started editing it as italics, or italics.
+And I see that it's emphasized, that last line.
+Links like google.com, how do we do that?
+If you actually just put in http
+google.com here, it's going to already render it
+as an automatic link to google.com.
+So there are so many ways to render text of course,
+and if you'd like to learn more,
+there's a markdown guide we give you in a follow-up reading.
+Also, as a side note, most think of markdowns
+as code commenting or documenting your code,
+but I think of it more like writing a scientific paper
+or a white paper.
+You can create very sophisticated editing with markdowns.
+For example, you can create equations using LaTeX equations.
+LateX is a document editing language,
+which has a syntax for many text components
+for scientific writing, including writing
+equations.
+So let's go to that next cell
+and maybe here I can show you,
+I'll switch that again from that code cell
+to a markdown cell like this,
+And I'll enter there, a LaTeX equation.
+So to write an equation in LaTex,
+I need to write them between two dollar symbols
+just like this.
+And there I can just
+write my LaTeX equation,
+which will, then we'll see how it gets rendered
+into
+an equation, nicely formatted.
+Okay, let's render this line.
+As you see, in the cell, we entered a nice little LaTeX
+equation code, even if it's markdown cell,
+it's not code cell, it knows how to render that
+into this beautiful equation.
+So here I can add more text, right?
+This is a bold
+LaTeX
+equation,
+and I can enter it now when I say Shift + Enter
+I'll see that it's nicely formatted,
+almost like you would see in a scientific paper.
+This is great when, for example, you're implementing code
+from a scientific paper or a data science algorithm
+that you'd like to try out.
+There's a lot of math involved in there.
+You can of course first write an elegant equation in LateX.
+Easier to read for humans.
+Then you can implement that in a Python function,
+in a code cell right after that.
+It makes it a little easier to understand
+for your collaborators or readers.
+Next, we'll talk about how to use code cells
+for imaging
+in a notebook.

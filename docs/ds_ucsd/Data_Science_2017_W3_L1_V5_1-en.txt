@@ -1,0 +1,231 @@
+- After this brief overview of Jupyter Notebooks,
+we will now start with the notebooks further.
+Before we show you the great Python library is,
+I would like to quickly overview how to use UNIX commands
+through a Jupyter Notebook.
+Although the Python language itself provides ways
+to use UNIX shell commands,
+Jupyter Notebooks provides an easier
+and more interactive way to use UNIX commands.
+We simply put an exclamation mark
+before the commands to execute them
+like we execute them on a UNIX shell.
+On a side note, Jupyter will use your default shell
+to execute these commands,
+so any adjustments needed to execute these commands
+should be based on the operating system,
+your Jupyter environment is set up on.
+Let's now switch to our notebook
+to execute some of the commands we've reviewed
+as useful commands for data scientists.
+Let's start with ls.
+To display the contents of the data directory,
+called UNIX in the same directory with this notebook,
+we use the exclamation mark ls command.
+So in my notebook environment and in your victory folder,
+you have a cold folder called .unix
+so here we'll go and execute that particular shell.
+It says there is a shakespeare.txt a data file in it.
+To store the name of this data file,
+I'll use a local variable in the notebook
+the way we would normally use in Python script.
+So here we say filename ./unix/shakespeare.txt
+To display this variable we can use the UNIX way
+and use the echo command in UNIX
+with an exclamation mark in front of it
+to display the value stored by the file name variable.
+Or simply use the print function in Python,
+then we don't need the UNIX, like dollar sign.
+We just use it as Python variable.
+So here when we execute it with shift enter,
+we see that both echo and print execute the same,
+output the same line.
+Next, let's display the first and last few lines
+of the file to get a basic understanding
+of the file header and footer.
+For this we'll use the head command.
+So I can quickly execute head
+with an exclamation mark -n
+3 for the top three lines and $filename
+for that UNIX variable resolution.
+And when I say shift enter,
+we'll see that the top three lines are displayed.
+I can display top 30 lines if I wanted,
+if I changed that the 30, the number of lines,
+I'll see the top 30 lines of that data file
+which is some disclaimer on the copyrights
+of the Shakespeare's works.
+Same for the bottom set of lines.
+It's important to view the top and bottom of the line,
+bottom of the file,
+because then it gives us some understanding.
+For that we use the exclamation mark tail command.
+So when I say shift enter and execute that,
+I'll see that bottom 10 lines.
+Let's just change that number to something biggish like 40,
+so we could see actually there's something
+about that, about Shakespeare.
+So we see that the end of one of his works.
+So that should tell us already,
+it looks like a big file.
+It's all of Shakespeare's works
+and in the top and bottom
+we can't even see the data yet.
+We just see those disclaimers.
+How big it is,
+how big is it, we can use the word count
+to display the number of words, lines, characters
+to figure that out.
+So here I'll say !wc $filename.
+When I do that, I get about
+124,000 lines,
+words, and characters following that number.
+To get just the number of lines,
+we use wc with the -l option here
+which will be in the next In (8) output.
+We can also use pipes and filters to do the same thing,
+to work with the cat command and the wc command.
+Now let's look for an occurrence
+of the word parchment in the file.
+As you might remember, the command they'll use
+for this is grep.
+Using the grep command will display all the lines
+that have the word parchment in it, at least once.
+So here we say !grep -I 'parchment' $filename
+so this should give us all the lines when I say shift enter
+in that line.
+So basically each of these lines have the word parchment
+somewhere in there.
+But exactly how many lines, right?
+We can take advantage of the pipes and filters here again.
+This time let's look for the word liberty
+instead of parchment just for a change.
+What we'll do is,
+we'll cat the file name through a pipe
+into grep and looks for liberty
+in the output.
+And count the number of lines at the output of grep
+which should be something like this.
+So if we did not have wc -l
+let's click that for a sec,
+we would have just the liberty word
+because we used the -o option,
+and if I cat that into wc, the one that we just removed,
+we'll see that there's 71 of those lines.
+Since I used grep with the -o option,
+I didn't see the full line.
+I just saw liberty as the word.
+Now let's use the sed stream editor
+to replace all occurrences of the word parchment
+with the word manuscript and write the results
+to a new file called temp.txt
+We can do that and then search for the word manuscript
+in the new temp.txt file.
+So we'll use the sed command for sed.
+And here we say find search for parchment,
+replace it by manuscript globally,
+and input is our file name,
+and we'll write that through a redirect to temp.txt
+I quickly execute that.
+Now I should have temp.txt,
+you should all have temp.txt in your
+week three directory
+that you opened your notebook from.
+So then we will go and count
+or find the number of occurrences of manuscript
+in this temp.txt
+So we see that the same lines that were listed
+for parchement before,
+they are listed but instead of that,
+parchment was replaced by manuscript.
+This could be useful when you're quickly replacing
+a set of data values with some other data values.
+Now let's look at how we use the sort command together
+with the head command in a pipe and filter.
+Head gives us the first five lines here,
+as you have seen before with the file name.
+If we sort those five lines,
+the sort will put those lines in ascending character order,
+LTIO, in the character order based on the ASCII numbers.
+We can use different sort options.
+If we now pass this output to sort through a pipe,
+we will put the lines in ascending character order
+just like this.
+We use different sort options.
+Sometimes here we see that library,
+this is often, is in ascending character order,
+meaning based on their ASCII numbers.
+But what if we wanted to sort on the second set of words?
+So of is presented and releases.
+How do we do that?
+Often the data files we work with are space separated,
+or comma separated.
+So we turn those into a column in our data set,
+and we maybe wanna sort based on that second column.
+So for that we can take advantage
+of the sort commands options.
+F is case insensitive and we are saying now sort
+on column number two with the rest of the commands.
+And I'll go ahead and run this.
+We see that is of presented and releases are
+in the right order now.
+Next we'll sort and find the number of unique lines.
+Remember we had
+124,000-ish files
+in our
+data file shakespeare.txt
+Now let's find out how many unique lines,
+we'll sort and pass that to the unique command
+and count the number of lines,
+and we see that here we have less number of lines.
+Some lines were repeated it looks like.
+We have about 110,000 lines there.
+To bring it all together,
+we will count the most frequent words in our data file.
+As you would remember in our UNIX exercises
+we used the sed stream editor command
+to do some processing to replace the spaces
+with a newline character.
+We will start by doing the same thing here.
+At the end of the sequence of unique character counts
+and sorting them,
+we will retrieve the top 15 using the head command.
+So that was the exact same pipe and filter we ran before.
+We only need the exclamation mark in the beginning
+for pipes and filters as you see here.
+And then if you run this,
+we will,
+it's still processing as you see the stars there.
+It didn't update that run number in the input.
+We'll see that the first 15 are displayed,
+and so sending,
+head sort command is right sending the last two errors,
+but it's because head stops after 15 lines.
+So how do we write this output to a file?
+We'll see this, you know, here,
+if we run this we can write the count_vs_words
+here with this command shift enter.
+It's still running as you see there is a star there.
+We'll have to wait a little bit for it to run and finish.
+And the standard output from the command will be written
+to count_vs_words.
+And remember sort gave us an error.
+That's the standard error coming out of the command.
+We'll see that still on the notebook interface like here.
+So that's why we left that error in the command.
+So let's count our cat,
+so display the contents of count_vs_words.
+It's the top 15.
+We didn't remove the spaces so some of them show up as that.
+Now we will take advantage of Python matplot library
+to plot the top 15 words in Shakespeare's works.
+So here again in week five,
+we learned more about matplotlib,
+but here we see a small script using matplotlib
+to do just that.
+And it's displaying that, the I and space,
+all of that plotted nicely on a graph.
+As I mentioned before we will learn more
+about matplotlib in week five.
+Next we will discuss the numpy library in Python.
+That should be fun.
