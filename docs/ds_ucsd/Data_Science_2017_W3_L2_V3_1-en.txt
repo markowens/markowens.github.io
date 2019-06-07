@@ -1,0 +1,149 @@
+- In this video, we'll look at different approaches
+for accessing and permuting data in ndarrays.
+So by the end of this video, you should be able to
+use slice indexing to access subsets of an ndarray,
+and recognize that using such indexing
+creates a second reference to the same underlying data.
+From strings and lists,
+we learned that we could use slice indexing
+to get subsets of those data structures.
+We can use similar indexing to pull out sub regions
+from ndarrays.
+Again, we'll import NumPy as np
+and we'll create the same three by four ndarray
+to work with for a few of our examples.
+Notice that, to help us show you how these work,
+we filled in the values in the matrix
+with numbers corresponding to the row and column.
+For example, row one, column one is one, one-one.
+This should help us keep track
+of which values correspond to what.
+We'll next use Slice Indexing to pullout the first two rows.
+Row zero and one, and then we'll grab the middle columns,
+one and two.
+When I run this I expect to get back a two by two matrix.
+Let's take a deeper look at how that just worked.
+Here is the composition of an_array.
+We've got three rows and four columns.
+Now we ask for a slice of that array.
+For the rows, we asked for all the rows before row two,
+which gives us back zero and one.
+For the columns, we asked for columns one through three,
+with one inclusive and three exclusive.
+This corresponds to columns one and two.
+So when we print the contents of a_slice,
+we get back, just the region in yellow here.
+A slice, a_slice is pointing to the same elements in memory
+as an_array, which is why I'm referring to a_slice
+as part of an_array.
+Zooming in a bit, this is part of an_array
+pointed to by this a_slice.
+What's both convenient and also sometimes confusing,
+is that a_slice has it's own indices.
+And these indices are different
+than the indices in an_array.
+This becomes clear when we try to access
+an element in a_slice.
+If I ask for a_slice zero-zero,
+that's the element with the value 12.
+It's the same element as zero-one in an_array.
+This might seem a bit confusing,
+that you'd access the slice
+based on it's own two by two indices.
+But that's actually exactly what you want.
+You want to be able to treat a_slice
+as a two by two matrix without any worries
+about where in some larger data structure
+those elements might be.
+Next, let's go back to the notebook
+and see how changing element 12 using a_slice,
+actually changes the contents of both a_slice and an_array.
+Here I'll print an_array zero-one,
+which is the element 12 that we just showed in the diagram.
+Then, I'll change the corresponding element in a_slice,
+which is at zero-zero, to 1000.
+When I look at an_array's zero-one,
+we should see that it has been changed as well.
+And it has.
+The reason I spend so much time pointing this out,
+is that it's really easy to forget that slices
+are just references to the same underlying data
+as the original array.
+If you wanted to have a slice be a copy,
+you have to make these changes.
+First let me run this again,
+and then, instead of just asking for this slice of an_array,
+I'd have to essentially make a copy,
+and to do that I'm gonna type np.array,
+and then feed in the slice.
+That will create a copy of the portion of np.array,
+and give that to a_slice.
+So now when I run this next block,
+we're gonna find, that even though I changed a_slice,
+I didn't actually change the underlying code.
+And this was because I made a_slice to be a copy.
+So let's see a few more examples of slicing.
+But I'll move a bit more quickly
+now that we've done one example in detail.
+First I'll create that same array,
+an_array and I'll hit run.
+Now I'll use and index, just a single index,
+for the row and a slice for the column.
+By putting a colon, it means all columns.
+So here I'm asking for all columns of row one,
+and I should get back 21, 22, 23, and 24.
+The interesting part here, is looking at the shape.
+Because I've used a single index to access the row,
+I actually get back a Rank 1 array,
+which I could index with a single number.
+Using the single index is a special case
+because if I use slices to produce a one by four array,
+it will still be Rank 2, let's do that.
+Row Rank 2 is being assigned just row one
+using slicing in all the columns.
+When I ask for that array and it's rank,
+I'm gonna get back that's a 2D array.
+Notice the double brackets at the start and the end.
+And this is shown by the fact
+that this is one by four Rank 2 matrix not Rank 1.
+Here we'll do the same thing for the columns of the array.
+We'll grab column one, which has elements 12, 22, and 32,
+using the index for column Rank 1.
+We get back a Rank 1 array with those values.
+But using the slice indexing with call Rank 2,
+gives us a three by one, Rank 2 array.
+Sometimes we like to use arrays of indexes
+to access or permute our larger matrix.
+Let's do this in the following example.
+First I'll create a four by three array.
+Next I'm gonna create an array of indices,
+with the values zero, one, two, and zero.
+I'll also use the np.arange function to create an ndarray
+with the values zero, one, and two, and three.
+Let's quickly examine how these values might pair up
+if I use them as row and column indices.
+I'll do that with a quick for loop and the zip function.
+We get back that the corresponding 2D indices
+would be zero-zero, one-one, two-two, and three-zero.
+If you were curious about how that zip function works,
+you can always go back to our earlier lessons on Python.
+Okay, now let's inspect the contents
+at those pairs of indices and we'll get back
+the values ...
+11, 22, 33, and 41.
+This is pretty useful.
+We can access elements using arrays as indices.
+We can also change elements in the array the same way.
+Here, I'm gonna add 100,000
+to an_array for our row and column indices.
+After inspecting the array,
+we see that zero-zero, one-one, two-two, and three-zero
+have all been incremented.
+Keep this trick in mind for later
+in the course when we start doing Data Cleaning.
+Slice and Array Indexing is at the heart of NumPy
+and is both really convenient and extremely fast.
+There's one other form of indexing which we need to learn.
+And that requires us using conditionals,
+based on the values in the ndarray.
+We'll do that in our next video.

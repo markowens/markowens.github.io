@@ -1,0 +1,125 @@
+- In this lesson, we'll get started
+with the basis of working with ndarrays.
+By the end of this video,
+you should be able to create both rank one
+and rank two ndarrays.
+You should be able to access element in ndarrays
+using basic indexing,
+and use built-in functions to create ndarrays
+with different shapes and initial values.
+Just like our basic data structures from Python,
+we'll get started working with ndarray
+by creating ndarrays and accessing their elements.
+First, we'll start by creating a rank one ndarray.
+But before we create the array,
+we'll need to import the NumPy package.
+Typically, we import it as np,
+and then use np to access the functions from that package.
+Now let's create our first ndarray called an_array.
+Rank one ndarrays are simply a single dimensional array
+or a vector.
+Here I'm giving you the values three,
+33,
+and 333.
+In order to create this as an ndarray,
+I had to call the function in numpy called array,
+which returns the ndarray object.
+Let's look at the type of the an_array object
+to see what class it is.
+We find the result as a numpy.ndarray object,
+and that's exactly what we expect.
+Next, let's see what the shape is of an object
+we just created by using the shape function.
+We find that it has only one dimension,
+and in the dimension, we have three elements.
+Next let's access those elements using brackets,
+just like we might do with a list.
+If I ask for an_array at index zero,
+I should get about three and so on.
+Here I'm printing the elements zero, one, and two.
+And what I get back is
+exactly what I expect.
+Ndarrays are mutable,
+which means that we can switch their elements.
+To do this, we can use an assignment.
+Here, we're changing the contents of the first element
+to be 888,
+and they were printed a result.
+The first element is now 888.
+Remember that these arrays are typed,
+and we'll see more of this later.
+But if try to assign it to be a string,
+like this,
+I might get an error.
+You can't assign an integer to be a string.
+And for those of you with a background
+in strongly typed languages like C, or C++, or Java,
+this would be pretty familiar to you.
+But for those of you with a background primarily in Python,
+you'll need to keep this in mind
+when you're with ndarrays.
+So let me fix that code really quickly.
+All right.
+Next, we'll create a rank two array.
+A rank two array is a two dimensional array,
+which is effectively a matrix.
+Because we're creating a 2D array,
+notice how I have nested brackets
+The first row, we'll have the elements
+11, 12, and 13.
+In our second row, we'll have 21, 22, and 23.
+So let's see how this code works.
+When I printed the array, I got back its elements.
+I then tested its shape, and I got back.
+There's a two by three matrix
+with two rows and three columns.
+Lastly, we access the elements of the array
+at position zero zero,
+zero one, and one zero,
+and got back the elements at those locations.
+When specifying the two values,
+we're asking for the row first, and then the column.
+That's why zero comma one corresponded to 12,
+and one comma zero corresponds to 21.
+One of the nicest features to NumPy
+is the variety of library functions available
+to trade arrays of varying sizes
+with different pre-filled values.
+For example, in this segment of code,
+we're asking for a two by two array of zeroes,
+using the function zeroes,
+and that's what we'll get back.
+Next, if I want an array
+to be pre-filled with the same value,
+I can do that by using the function full,
+specifying the dimensions I want here.
+Here I'm asking for a two by two matrix.
+And then I have to specify the initial value
+by giving it 9.0.
+What I should get back is a two by two array
+full of the value 9.0.
+And I do.
+What if you wanna create an n by n matrix
+where the diagonals are all one,
+and all the other values are zero?
+The eye function can do this for you like this.
+If you want it to be all ones,
+you can use the ones function.
+Notice that I just created a one by two matrix.
+This is different than a rank one matrix,
+and that it's still ranked two,
+and I can see that by testing its shape.
+I find that the shape is one by two.
+In order to index, I have to use two dimensions.
+There are more functions for building arrays,
+but the last one I want to point you to is pretty useful.
+You give yourself a random array pretty easily
+by calling the random function in np.random.
+By specifying size, you get back a matrix
+filled with random values.
+This is particularly useful for algorithms
+which you need to random state in order to get kick started.
+So by now you should feel fairly comfortable
+creating ndarray and accessing the elements.
+In the next video,
+we'll start looking at more advanced indexing features.

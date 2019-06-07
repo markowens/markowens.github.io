@@ -1,0 +1,100 @@
+- We've seen some basic operations on matrices,
+including add, subtract, multiply, and others.
+Next we'll dive into some of the more useful functions
+that you'll be using throughout the course.
+So by the end of this video, you should be able
+to use common ndarray functions for doing data analysis,
+including statistical, sorting, and set operations.
+As this is a data science course, you'll be using
+basic statistical operations fairly frequently.
+Let's look at some of the common functions you'll use.
+First, we'll create a two-by-four array
+filled with randoms.
+Next, let's compute the mean for the elements in the array.
+Suppose you want to get the mean for each row.
+Well you can do this by specifying axis equals one.
+What we get back, is a two-element array
+containing the means for each row.
+Similarly, we can compute the means for each column
+by giving axis equals zero.
+Here are the means for each column.
+There are other methods like sum,
+which can be useful as well
+and function in a similar way to mean.
+Just to tie this all together,
+let's say that we want to get the medians by row.
+Well, let's start by creating a new cell.
+This will be similar to the code
+for computing the means by row.
+So I'm going to copy the code over from computing the means.
+We need to call median from the NumPy package
+and pass it the array.
+So I'm gonna change this to see print, np.median.
+I'm gonna pass it the array.
+And I'm gonna set the axis to be one
+to compute the medians.
+Bingo.
+We have the median values for each row.
+Next, let's look at the built-in functions for sorting.
+To get started, we'll create an array
+of 10 random elements.
+Sometimes, we want to avoid
+changing array values themselves
+and just get back a copy of the array, which is sorted.
+To do that, we want to create a copy of it first,
+then sort that copy with the method sort.
+When we run this, we'll find that the copy,
+find that the copy is sorted, but the original is untouched.
+If you had just wanted to sort the original array,
+you could have just done that calling the sort method
+and that would sort it in place.
+Before diving into set operations,
+I want to quickly mention the function unique.
+If you have an array of values like I have here,
+you can use the NumPy method unique
+to pull out just those which are unique.
+Notice that my original array had a number of duplicate
+ones, twos, and fours.
+The output is just one, two, and four.
+We can actually use set operations on ndarrays.
+Let's create two ndarrays with string elements.
+The first has a desk, chair, and a bulb.
+The second has a lamp, bulb, and chair.
+The method intersect will give us those elements
+which are common to both arrays.
+Notice that we're using intersect1d
+because intersect expects 1d arrays.
+The results are bulb and chair.
+The method union will give us
+all of the unique elements across both arrays,
+which is bulb, chair, desk, and lamp.
+We can use difference to check for elements in one set,
+but not in the other.
+Desk is the only element in set one,
+which is not also in set two.
+Similarly, you can get back an array of Booleans
+for whether each element is in the array or not.
+Desk is not, but chair and bulb are.
+So we get back false, true, and true.
+That wraps up the most critical functions
+we wanted to highlight in videos.
+We will be diving into broadcasting in the next video.
+Before we do, I want to point out
+that there are a myriad of useful functions on ndarrays
+and we could spend hours just talking through more of them.
+But rather than us walking through line by line,
+we encourage you to go through these on your own.
+You'll find these functions at the bottom of this notebook
+that we've provided.
+Included in these functions is how to perform
+dot and inner products on matrices and vectors,
+how to sum elements in the ndarray,
+how to use element-wise functions
+and get the transfers of a matrix,
+how to use random number generation
+and how to merge data sets,
+how to use the ware function, and more.
+As with our other notebooks,
+you'll often find we add extra examples and resources
+beyond those we discuss in the videos.
+Okay, I'll offer broadcasting in our next video.
