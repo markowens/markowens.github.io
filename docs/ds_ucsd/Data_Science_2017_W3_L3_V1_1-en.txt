@@ -1,0 +1,107 @@
+- In this lesson, we will analyze
+a sample satellite image data set
+from one of our research projects called WIFIRE,
+and we'll use the numpy library in this analysis.
+WIFIRE is an integrated system for wildfire analysis
+which is capable of handling changing urban dynamics
+and climate.
+The system integrates networked observations
+from a variety of sources including heterogeneous
+satellite data and real time remote sensor data.
+It then processes all these data
+using computational techniques
+in signal processing, visualization,
+predictive fire modeling, and data assimilation
+in a scalable way.
+The result is a system capable
+of monitoring weather patterns
+and other factors to help predict
+a wildfire's rate of spread.
+You can read more about WIFIRE at wifire.ucsd.edu.
+By the end of this video, you should be able to
+describe what satellite image data is
+and how it helps fighting wildfires,
+and apply basic methods in numpy for image processing.
+In this lesson, we'll go over a notebook
+that uses a satellite image from landfire.gov
+that can be used for analysis of the Earth's surface.
+It is very common for any Earth science application
+to include an analysis of visual graphs
+in the form of maps, photos, or satellite imagery
+as seen in this image.
+Many other data science applications will also
+involve a form of image processing.
+We need to have a basic knowledge of image formats
+and how to work with images in Python
+to get started in this vast field.
+So before we switch to our notebook for further practice,
+let's review a few key points on image processing
+and Earth science applications.
+Simply speaking, we can say computers
+store images as a mosaic of tiny squares.
+This is like the ancient art form of tile mosaics,
+or the melting bead kits kids play with today.
+If these square tiles are too big,
+it's hard to make smooth edges and curves.
+The more and smaller tiles you use,
+the smoother, or as we say less pixelated,
+the image will be.
+This sometimes gets referred to as resolution of the image.
+Please note that vector graphics
+are a somewhat different method of storing images
+that aims to avoid pixel related issues,
+but we'll set those aside for now.
+Even vector images, in the end,
+are displayed as a mosaic of pixels.
+Each of these squares is called a pixel.
+Each pixel is only one color, defined by a set of numbers.
+A simple way to describe each pixel
+is using a combination of three colors,
+namely red, green, and blue.
+This is what we call an RGB image.
+In an RGB image,
+each pixel is represented by three 8-bit numbers
+associated to the values
+for red, green, and blue respectively.
+The combination of these three will, in turn,
+give us a specific shade of the pixel color.
+Since each number is an 8-bit number,
+the values range from 0 to 255.
+For example, a yellow value can be identified
+by 255, 255, and 0 for RGB,
+as we see in this diagram.
+If all three values are at full intensity,
+that means they are 255, it shows as white.
+If all three colors are muted,
+or has the value of 0, the color shows as black.
+Since each value can have
+256 different intensity or brightness value,
+it makes 16.8 million total shades.
+In Python, RGB images are ndarrays
+of shape height times width times three
+for each RGB layer.
+Now that you have a basic background
+in how color images are stored in Python,
+we can look at WIFIRE data in more depth.
+Over the next video, we will go through a notebook
+in which we start by importing a high resolution image
+from the NASA satellite LANsat.
+We will mainly use numpy functions,
+filtering techniques, and some domain
+Earth science knowledge to analyze this image.
+So how do we use the results of this analysis
+in predictive fire modeling in the end?
+We will make this fuel data set,
+one of the many other data sets we use for fire modeling.
+We see in this diagram how we can
+make many real time analysis results
+a part of the fire modeling.
+Once integrated with other sources of information,
+such better and automated fuel models
+can lead to more accurate results.
+We provide you a short video that further explains
+how all these data sets are integrated and analyzed
+using data science as the next video in this lesson
+before we start with our notebook.
+Please feel free to skip it
+if you would like to jump ahead to the notebook.
