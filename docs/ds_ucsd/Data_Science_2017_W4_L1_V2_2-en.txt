@@ -1,0 +1,54 @@
+- In this lesson we'll be focused
+on importing data into Python.
+By the end of this video you should be able to describe
+efficient and easy to use methods that pandas
+provides for importing data into memory.
+Identify functions such read dash csv for reading
+a csv, commas separated values, file into a Dataframe.
+And discuss about other data resources
+that pandas can directly import from.
+One of the biggest advantages of using pandas is
+its ability to ingest data from a variety of sources
+in a variety of data types and formats.
+We can simply say that pandas has simplified
+the data ingestion for all of us.
+Let's look at a few of these data formats
+and functions that make it possible.
+One of the most popular data formats
+is comma separated values, or shortly csv.
+Csv is a simple file format used to store tabular data
+such as a spreadsheet or a database.
+Files in the csv format can be ingested into Python
+as Dataframes using the pandas read csv function.
+JSON, or java script object notation,
+is a format for structuring data
+and it's commonly used for communication
+within web applications.
+Using the read JSON function in Python pandas
+we can ingest the structure and contents of a JSON file
+as a pandas Dataframe or a series data structure.
+Html, is a hyper text markup language,
+and it's a file format used as the basis of every webpage.
+The data in an html document gets stored as a list
+of pandas DataFrames using the read html function.
+Sequel, or SQL, stands for structured query language.
+SQL is used to communicate with a database using queries
+to insert, delete, and select data of interest.
+The read SQL query function in pandas provides
+us a way to subset and load data
+from a relational database to Python.
+Similarly, we can load a whole relational table using
+the pandas read SQL table function.
+Then it will simply show in tabular format,
+as a pandas DataFrame data structure.
+As a summary, ingestion of data
+into Python was not always easy.
+Pandas made it an intuitive process.
+And it has enabled data scientists with tools
+to manipulate the data ingested
+and key data structures to allow
+for a vast variety of these data formats.
+We listed just a few of the source types
+that we can ingest into Python.
+But there are many more examples if you follow
+the link provided in the summary slide.

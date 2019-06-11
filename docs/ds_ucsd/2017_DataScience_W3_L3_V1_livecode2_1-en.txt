@@ -1,0 +1,213 @@
+- [Instructor] Now we will do something
+even more interesting.
+Let's try to cut out the circle
+with the radius with half of the total row index.
+What I mean here is,
+as you see in this image,
+we will cut out this circle here.
+And we'll see how we'll calculate
+the Euclidean distance of all the points
+within a radius from the center.
+So to do this, to summarize,
+we'll need to calculate the Euclidean distance
+of all points from the center.
+And if you have a triangle like this,
+which is the long edge of the triangle
+from point x one v one,
+oh x one y one, to the center x y.
+The radius of the circle will be
+the Euclidean distance of any points.
+So x squared y squared should be less than r squared.
+So how do we do this, right?
+So you have a nice image here in your notebook.
+Let's see how we convert what we mean
+and try to create a filter for all the points
+beyond that radius line, that circle to be true,
+and all the points within that circle to be false.
+In these first two lines, in the next code block,
+we create two mesh grids.
+They will be called x and y.
+But before that, we'll get the shape of our photo data,
+which is our ndarray which is three layer image, right?
+And we'll assign the number of rows to total rows,
+number of columns to total columns,
+and the three layers, RGB, to total layers.
+So if we actually go ahead and print this,
+we'll see that the shape is still that original shape
+of the image.
+Let's comment it out.
+Next now we'll use the ogrid function
+to help us vectorize the distance from the center,
+which will be a function of the two variables.
+Ogrid returns as an ndarray.
+So what will ogrid return?
+We'll give the range of total rows
+and range of total columns,
+and it's going to give us,
+let's comment this line with the print,
+it's going to give us two vectors, x and y,
+which will have, the x will have the total number of rows,
+like the one that we give here,
+and y will have the total number of columns.
+So ogrid is a compact method
+of creating a multidimensional ndarray operations
+in single lines.
+As we uncommented the two print statements here,
+we saw that x and y are vectors
+that match the number of rows and columns
+in our original image, respectively.
+Okay, I'll comment that out again
+to make our notebook compact.
+Next we will now calculate the center point, x and y,
+and call them center_row and center_column.
+So total number of rows divided by two,
+total number of columns divided by two.
+We will use our two vectors, x and y,
+to calculate the points that are farther than
+the distance of this radius of the circle
+we are trying to create here.
+It could be confusing so please again
+feel free to stop the video
+and uncomment all these print statements
+that we have here to explore data in these vectors
+and the distance from the center matrix perter, okay?
+So here we have the distance from the center,
+we are using our center row and the x vector
+to create the distance from the center matrix.
+And we are gonna make sure all of these values,
+or each value in this matrix
+that is greater than the radius is true, like here.
+We are trying to set all the circular values
+outside of the circle to be true in our circular mask.
+And we'll assign that to the circular mask.
+So actually, let's go ahead and run this.
+And if we print the circular mask,
+we'll only see the edges, right?
+We'll see that those edges in the matrix are indeed true.
+But if we go and provide a range query
+towards the center of the figure,
+which is the range selection in our second print here,
+row 1500 to 1700
+and column 2000 and 2200.
+If we run this again, we'll see that those points,
+or those pixels, are indeed false.
+So we were able to identify
+what's inside the circle and what's outside the circle.
+Okay now we have our circular mask ready here.
+We will go ahead and filter the image.
+I reload that original image again and use that photo_data
+and filter it using the circular mask we generated
+and assign all of those values to be zero, to be black.
+So just think for a second what you would expect to see
+in our original image when we plot this image.
+We are using the same plotting imshow function to plot this.
+We'll see that we have this, our image,
+nicely cut out as a circle.
+So nice work.
+Hope you were able to follow this.
+If not, please review what you've done until now
+before we move on.
+Okay, now let's combine this circular mask with another one
+that masks out now the bottom half of the image.
+So it's below, any point below that center row point
+we had in this image.
+This is the center.
+And we assign that to a variable called center_row,
+the x for that point, will now use that as a mask.
+We'll use the same technique to create the mask here.
+In x, our vector,
+any point or any row below the center point of the image
+will be filtered.
+So any x that's less than center_row, that's the upper half,
+will be true.
+So we'll call that filter half_upper, okay?
+Then, we'll use the logical end function from numpy
+to combine these two filters.
+I'll call this new filter half_upper_mask.
+I think we maybe should have called it
+half_upper_circular_mask actually.
+And we'll provide the half_upper and circular_mask
+as the two filters to this new mask.
+So we are ending all the true false values
+in those per row column index.
+We should have a filter that gives us the true values
+for the upper and around the circle.
+Now if we assign this half_upper_mask to this filter
+and assign the value of 255
+to the points that are true in that filter,
+those parts should be visible as white
+in the resulting image.
+So let's apply our mask and plot our image.
+I'm sorry I didn't run the...
+Okay and let's apply our image.
+We see that anything around the circle
+that's in the upper_half is white.
+We could have used a random for that,
+we'll have to import random.
+So please stop and uncomment that,
+where we imported that random before
+and this random int assignment.
+You should see the effect in the intensity values.
+We still select here when we use the random integer
+and intensity value of high, between 200 and 255,
+but the color will randomly change.
+It's not going to be pure white,
+it's going to have a shade of white.
+So please stop the video and try that line
+and make sure you understand that part.
+Okay now let's remember the meaning
+of each of these RGB layers in this image.
+Remember red was for altitude
+or height of that geographical point.
+And now we now how to create masks,
+we'll create one by selecting the red layer,
+which is layer 0 in our three layer matrix.
+And maybe we'll select anything
+of intensity higher than 150.
+So what I am doing here is
+I reload the image and I'll start creating the red mask.
+Here I'm taking the photo_data
+and selecting row or rows and columns
+for layer zero which is our red layer.
+And the red mask will have true
+for all the values in that photo_data
+with the red layer of 150.
+So all the red values that are less than 150,
+the row and column index for those
+will be true in our red mask.
+Let's use this mask to assign zero to all those points.
+So I'm going to run this.
+And we see that the image will be plotted.
+And we only display the high elevation areas.
+Our image changed quite a bit actually
+because we only showed the points in the image
+that had that red intensity of 150 or higher.
+Next in the notebook, we do the same
+to find the high aspect and high slope.
+The only thing we change here is
+we change to green and blue layers.
+Please run those two code cells
+and observe how your image changes.
+It shouldn't be the same image.
+It should have differences
+based on elevation, slope, and aspect.
+So we are almost at the end here.
+I hope you're still having fun with me.
+Lastly let's create a composite mask
+for point with high elevation, high aspect, and low slope
+using the logical_and
+like we did for our circular and upper half.
+We are doing the red_mask as we did before,
+green_mask for points larger than 100,
+and blue_mask for points greater than 100,
+sorry smaller than, less than 100.
+And our final mask will have these three combined
+using the logical_and function.
+And if we plot the image here,
+we'll see that with those values,
+the image changed a bit again from the original one,
+and we filtered out the points with these three conditions.
+Hope you enjoyed this notebook.
+As an exercise, I suggest you to use a photo of yourself
+and create some interesting filters
+to create your own Instagram.

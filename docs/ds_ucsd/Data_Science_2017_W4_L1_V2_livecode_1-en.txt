@@ -1,0 +1,194 @@
+- We are now in the live coding session
+on data ingestion that we just reviewed.
+For the rest of this notebook,
+we will use a movie data set from the MovieLens website.
+The data set we used should be in your folder
+for week four under directory called MovieLens.
+Please make sure you locate it before we get started.
+So I hope you're ready.
+Let's view the contents of that MovieLens directory.
+Here,
+we will use
+!ls
+and we'll say the MovieLens in this directory ./movielens.
+I'll run that, and I see that I have
+the readme.txt,
+genome-tage.csv,
+movies.csv, and some other
+csv files in that directory.
+So let's actually leave the contents of some of the files
+in this one we'll use the cat command.
+Here I'll run
+the cat command and give movies.csv as the input to it.
+This will take a while.
+You know that it's running if you see
+the star here right next to In.
+That means your kernel, the Jupiter kernel
+in the background that's processing
+the command that you've written.
+We are already seeing some partial output.
+We see that there are some comma separated files
+in that directory, and we are running
+cat to display the contents of movies of that csv file.
+And we will see that in there there are many lines
+that are similar in format.
+They have the values for movie ID, title,
+and genre separated by commas.
+This is what they mean when we say comma separated value.
+These three values, eight for example, and Tom and Huck
+1995 and adventure
+by children are separated by
+commas.
+And they'll be turned into columns in our DataFrame
+when we go to load that.
+Let's go and check the first line
+in this
+output.
+We see that the first line is movie ID, title, and genres.
+These are the labels for the data columns
+that DataFrame will use.
+If they're not there it's gonna be
+simply indexed numerically.
+Now let's find out how many movies exactly by
+typing the output of this command
+into
+the wc command
+with the
+- l option.
+We see that there's about 27,000
+something movies in this movie database.
+We can do the same thing to cat
+and say the number of data values or rows in there
+for tags.csv and ratings.csv as well
+to make sure that the data is there and we understand
+the formatting of it.
+The fastest way of doing it will have been actually seeing
+head
+- 5 just to display the top five elements
+in that MovieLens
+data file.
+Movies
+.csv.
+Oops.
+If I run this I see that quickly, I'll see
+that the first line is movieId, title, genres.
+And we have Toy Story, the first four lines.
+It gives us an idea about the elements
+in this
+data file.
+I can do the same for text.
+We see that
+the column labels will be for
+the text.csv when I loaded it.
+UserId, movieId, tag and timestamp and the other file
+that we are interested in this notebook is called ratings.
+Let's also display the first five elements of that.
+We see that the columns are
+userId, movieId, rating, and timestamp.
+So now
+we will use Pandas to read the data set
+and load it
+into a DataFrame.
+Now, we know the data set is good.
+We understand the labels.
+We will start by loading the data into three DataFrames.
+Let's start by movies.
+Here we will take advantage of the read csv function.
+We need to specify the separator for the data as a comma.
+But simply we say movies is my DataFrame object,
+pd.read
+csv we give the data file and the separator.
+And let's display
+the type of movies to see that it's a DataFrame,
+and we'll also see the top five elements
+in that DataFrame by using the head function.
+Here I display the type to show that the type for movies
+DataFrame object we created is of class DataFrame.
+And we use the head function of DataFrame to display the
+first five rows, which is the default for the head function.
+But we could have specified the number of rows.
+If I wanted to see more I could have just said head 15.
+I'm changing that third line in that in 15
+in my notebook.
+And if I rerun that I'll see that I can display
+that first 15
+rows in the DataFrame.
+Now let's go ahead and load the other two csv files
+in a similar way into a new DataFrame
+into two new DataFrame objects called text and ratings.
+We do the same,
+the tags here that we have.
+We are reading the MovieLens tags.csv that we checked
+and separating them with the movie, with the commas.
+And we see the first five rows in there
+with using the head function,
+same for
+ratings.
+And we see there that it is executing
+in the kernel.
+And the In will get updated
+probably to be 56 according
+to this notebook as a next sequential value
+numerically once it finishes execution.
+So here we do something special about parsing
+the dates for the ratings.
+We'll come to that when we talk about timestamps
+and how to work with those timestamps
+toward the end of this lesson.
+Here we see that after ratings has finished
+and In was updated to 56 and we see
+the first five values as well.
+For current analysis as I mentioned
+timestamps will come later, we will remove
+the timestamp column and we'll come back to it later on.
+So as you remember from our
+DataFrames discussion.
+We can use del ratings timestamp give the index
+or label for that column
+and drop it or delete it from the date frame.
+So ratings and tags won't have timestamps anymore.
+Okay,
+so we have three DataFrames now.
+Let's review how we can interact with the object using
+series and DataFrame functions.
+Let's first extract the first row in tags.
+It's space,
+uh sorry.
+The type of that first row we see is a series.
+And if we print that first row we'll see
+that the userId, movieId, and tag are
+indexes for the values that
+we have
+for example the userId 18.
+And if you're confused about these indexes,
+the same rule about the series applies.
+You can say row_0 which is our variable name
+for that series object, index.
+And it gives us the index values.
+And you can use those indexes to get the value,
+index by that label.
+You can also do some Boolean operations.
+You can see this rating in row 0.
+Can I get the rating out of it?
+As you see the index has userId, movieId,
+and tag so there's no rating there.
+So it will evaluate being false.
+Now let's use some DataFrame functions
+to work with the DataFrame.
+We've already seen head and index
+and column.
+To extract a series of rows we need
+to provide an area of indices.
+So I'll go to tags and I'll give the indices
+with iloc because remember there are so many
+different rows in this one until
+however many texts we had before.
+So tags.iloc and we'll give it
+an array with the indices zero, 11, and 200 (meant 2000)
+for the names of those rows.
+So if you do that, we'll see that we can extract
+just those values and select technically
+those values out of that DataFrame.
+So let's stop here and review some
+of the descriptive statistics in the next video
+before we go on with that live coding session.
