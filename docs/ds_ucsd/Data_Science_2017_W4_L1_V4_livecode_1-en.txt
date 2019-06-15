@@ -1,0 +1,64 @@
+- Let's start our live coding session on data cleaning.
+So, we'll first look at the shape of movies data frame
+using the shape function here.
+Remember, we loaded that movies.csv
+into a data frame called movies
+and if we run the shape function here,
+it gives us a number of rows and columns in the data frame.
+So, we see that there's about 27,000 rows,
+records that means, of movies.
+Next, we'll check if any row has no values
+in any of our data frames.
+Here,
+we use the isnull function first.
+So, what I'll do is movies.isnull.
+This isnull function run on the whole data frame
+will give us a boolean data frame.
+For movies the data frame will be composed
+of three series
+for each column for user ID, movie ID and rating.
+And then we'll check if any of those values
+are true.
+All of them are false, which is great,
+that means we have no null values
+in the movies dataset.
+So,
+we'll do the same exercise for ratings.
+We'll check if any of the values in the ratings is null.
+They are not.
+All the columns have
+values in them.
+There are no missing values.
+And as we go through the same steps for tags,
+the third data frame we built,
+we'll notice that in tags
+there's a true value.
+Instead of all three falses,
+we notice the tag column has some missing values,
+some NAN values in there.
+So, as you have seen
+this is a relatively clean data set
+but tags column has indeed some values.
+Let's try to drop those.
+We will use the dropna function
+with the default option of eliminating records,
+rows with missing values in access zero
+or simply rows with NAN values in them.
+So, we'll say tags equals tags.dropna
+and run that.
+And let's do that same check on isnull on tags.
+We'll see all three
+return false.
+So, we successfully got rid of those null values
+or NAN values, missing values in tags.
+Remember when we ran the shape of tags,
+we noticed there were 465,564 rows,
+records in there.
+Let's run the same shape and see if we indeed removed
+some of them.
+Looks like we removed now.
+There's 465,548 rows, records
+and looks like we really removed 16 rows
+with missing data values in them.
+Okay, let's stop here and see how we can explore
+this dataset through simple visualizations in Pandas next.

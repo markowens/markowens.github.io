@@ -1,0 +1,174 @@
+- Often, when working with dataframes,
+we need to work with data from multiple frames.
+A common practice is to merge data we want
+from two frames into a single frame,
+and execute operations on the new frame.
+If you're familiar with database management systems,
+this is very similar to a join operation.
+In this video, we will review how to do this in pandas.
+By the end of this video, you should be able
+to explain that data is usually distributed
+across different locations and tables.
+Combine data from distinct DataFrames
+to obtain a big picture.
+And distinguish among different ways
+to combine data sets.
+For this video we will use the two DataFrames
+given here as examples.
+The left DataFrame has two key columns, key one and key two,
+and additional two columns for city and user name.
+The right DataFrame has the same two key columns,
+and additional two columns for hire date and profession.
+The concat function in pandas can be used
+to stack DataFrames and create a new DataFrame out of them.
+Here we see the DataFrame called left
+being concatenated with itself.
+The index for the resulting DataFrame
+will have row indexes from the original tables preserved.
+If the two DataFrames given to the concat function
+have columns that are separate,
+the resulting DataFrame will have the columns
+from both frames represented.
+In that case, some of the cells for the columns
+that didn't exist in the original DataFrames
+will end up having NaN or missing values
+as they will be missing in the first DataFrame
+we merged into this larger DataFrame.
+Instead of having extra rows with missing numbers,
+we could also try an inner join.
+Inner join is a useful operation for merging data,
+as it combines the column values of two DataFrames,
+into a new DataFrame, just like we see here.
+Notice the way to do this is to specify to concat
+that the join type is inner.
+In the previous slide, the concatenated DataFrames
+were stacked vertically.
+Here, they are placed next to each other horizontally,
+using the indices zero, one, two, and three.
+In the horizontal stacking unfortunately,
+this isn't the perfect merge for our data either,
+as the key columns have been duplicated
+when they were merged into the new DataFrame separately.
+An alternative to concat is append.
+We can also use the append function
+to append the DataFrame to any other DataFrame.
+It behaves similarly to the concat function,
+but it is a function of the DataFrame itself.
+So we'll say left append,
+and then give it another DataFrame.
+Like our first use of concat,
+we've got those many empty cells again here.
+The operation which will give us a true combination
+of these two frames is called merge.
+The benefit of using the merge operation,
+is that it can eliminate the duplicate columns
+between the DataFrames it joins.
+So it's behaving very much like concat using inner join,
+it just trips out those duplicate columns we had.
+Although all these methods have utility
+depending on the situation,
+I find myself using merge fairly often,
+as I'm often trying to combine data
+from multiple different sources,
+which all share the same keys.
+In summary, data in the form of tables benefits
+from both clean and simple joining and merging operations,
+similar to relational database operations.
+Pandas provides support for these database-like operations
+through it's native DataFrame functions,
+make it an easier to integrate data
+from a variety of sources for analytics
+on the merge datasets.
+So now, let's start our live coding session,
+to see some of this functionality.
+Please go to the merge DataFrames part of your notebook.
+And let's remember what the columns are
+in the tags and movies DataFrames in our notebook.
+So here we see that both DataFrames have movieid
+as one of the columns,
+so we can use this movieid column
+to do an inner merge on these two DataFrames.
+So what they'll do is, we'll say movies dot merge,
+tags on movieid, do a inner join.
+So let's run this.
+Notice how we merged both the tag data
+and the movies data all into one frame.
+So we are merging movies with tags,
+on the movieid column using an inner join.
+Notice the link we provided here,
+because there are a number
+of useful examples on merging at this site,
+and I really encourage you to go there on your own,
+and exploring more of these merges.
+Now let's try to bring everything
+we learned so far together.
+In the first line here, we group all the ratings.
+Ratings, group by, based on the movieid column.
+We chose as index to be false,
+so new sequential indices for rows will be generated.
+And, in the second line, since we don't, or won't
+be using the userId column, I'm just deleting userId.
+And in the third line here, printing again,
+we're using the head function the top five rows.
+Let's run this.
+We see that we grouped by movies id, all the ratings.
+But since as index was false,
+a new index from zero to four,
+or zero to end, was generated.
+If I actually made the index true,
+you would see the difference here.
+If we run this, movieid will be the index.
+So let's switch back to false here and run this,
+and we'll have our average ratings frame, a new frame.
+This is great.
+So we have average ratings now for each movie.
+We can now merge these average ratings into
+with the movies table.
+So, we are using the average ratings,
+we are calling it box office,
+movies merge, instead of tags now we are giving
+the new frame we generated, average ratings frame,
+which also has a movieid just like movies DataFrame had.
+And we are doing an inner merge,
+and then we get the last five rows just to check.
+Here we see this many new rows are
+in this merged box office DataFrame.
+The one that we called box office.
+And, we have our movieids, title, genres, and the ratings.
+The rating comes from our average rating DataFrame
+that we created and we merged into the movies database.
+We can now use what we have learned
+on applying filters.
+We'll start by setting up a filter
+for those which are highly rated,
+as we did before.
+Our filter name is called is highly rated,
+and from this box office DataFrame,
+we are selecting the rating column
+that is greater than or equal to four point oh.
+And let's get the bottom five in that new DataFrame.
+Next, we'll set up a filter for those movies
+which have the genre of comedy.
+So it's the same exact filter we've done
+for animation before, but this time we call it is comedy.
+We select all the genres, all the rows
+with genres that contain comedy,
+and let's print the first five here
+from that box office.
+You'll see all the comedy movies here selected.
+We can also apply both filters at the same time,
+so we are looking for comedy movies with high ratings.
+Maybe we wanna watch comedy movies tonight,
+and we want to find those it's very useful.
+We can apply both filters using the and operator here.
+A logical operator to get back movies
+which are both rated four or higher,
+and those are which are comedies.
+So when we have that, we'll see
+that we printed the bottom five of that list.
+By using merging along with some of these skills
+from prior videos, you can see
+that it's very powerful when we combine these features.
+Next, we'll review some of the more frequently used
+string operations, including the contains function
+from the string object which we've already seen so far.

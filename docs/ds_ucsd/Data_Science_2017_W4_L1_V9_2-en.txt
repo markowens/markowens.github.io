@@ -1,0 +1,205 @@
+- Working with timestamps can be difficult due
+to a number of different time data formats and resolutions.
+In this video, we will go over some
+of the time data formats, and structures and operations.
+By the end of it, you should be able
+to explain what Unix time, POSIX time, and epoch time is,
+describe data types for datetime,
+select rows based on timestamps,
+and sort tables in chronological order.
+Unix time tracks the progress of time
+by counting the number of seconds
+since a specific time instant.
+That instant is the start of the year 1970
+as per UTC time zone.
+Notice that this is an integer.
+We need to find a way to convert
+this to a readable date and time.
+Datetime64 [Ns] is a general data type for datetime.
+This general data type
+maps to specific data types
+called M8, or,
+before M8, or after M8, depending on your machine.
+Our big task is to convert int64,
+which was that original instant since 1970 UTC time,
+into either one of the above datetime formats
+so Python renders it in a human-readable format.
+It's kind of confusing, maybe, seeing all these data types,
+but we can quickly convert a timestamp
+to Python format using, for example,
+to datetime function here.
+This function simply will convert the input
+to datetime format, to a form that Python understands.
+And in this case, we'll put that
+into that parsed_time column which you see
+is pretty human-readable as well.
+The unit argument is most important here
+as it tells the function what the unit of the input is.
+In this example, the input column is timestamp
+from the dataframe called tags, and the unit of the
+input is declared to be seconds.
+The output is stored in a new column
+that is named parsed_time.
+Once time is converted to Python format,
+you can use it to create filters.
+The filter will select only the rows
+that will match your criteria.
+For example, once we build a boolean filter
+called greater_than_t,
+and in this case, make that timestamp to be after 2015,
+February 1, or 02-01, we can use this filter
+to select only the cells in the dataframe
+that are true for this condition.
+We can also leverage the timestamp
+to sort data in ascending or descending order.
+The sort_values function in Panda's dataframes
+provides number of options to sort,
+one of which is by parsed time.
+So we are getting the parsed_time column
+in date format that we had before,
+and sorting time series data using the sort values function
+that's already a function of the dataframe.
+Sorting time series data like this
+can help in improved and effective visualizations
+because then you can provide assorted data
+to your visualization.
+So we can say, in essence Panda's ability
+to sort data based on time stamps
+can give us a big picture, almost instantly.
+You can even look at this dataset or dataframe
+and see the progression over time
+by looking at, you know, from above,
+to the lower rows in the data frame.
+In summary, POSIX, or Unix time,
+can be hard to read for users because it's a large integer,
+but converting it to Python datetime format
+gives us practical ways to select the data
+and make it human-readable in terms of timestamps,
+and create conditions on it using
+understandable time stamps from
+a human-readability point of view.
+Let's now start our live coding session
+with the time stamps.
+As you know, any data with time stamps
+opens up enormous possibilities for insights,
+because when we know when that data was acquired,
+we can actually do a lot of,
+generate a lot of understanding on that instance of time.
+So in this section, we want to explore Panda's ability
+to see this time stamps and use these time stamps.
+If you remember, our original data set had some time stamps,
+but we removed those, so I'm gonna reload, that tags.csv,
+into our tags dataframe
+and run the data types on it.
+Notice that, this time stamp column has now been added,
+right, since we removed it initially we weren't able
+to see it, but here's our ID movie ID tag,
+time stamps were original
+tags delimited, or comma delimited values, in this CSV file.
+Notice this is of type N64,
+however, humans don't think of time as an integer.
+We think of time as a month, date of the month,
+and time of the day, or better, as a combination of both.
+A very common format used by machines
+for storing time, as I mentioned in our overview,
+is the UNIX time or epoch time.
+So here we see it in
+that original
+integer N64 value.
+Now we have to convert this integer number
+into a datatype that Python can render
+as a date we can understand.
+So what we do is
+we parse that to datetime
+and we'll call it from tags timestamp with the unit s.
+That was the function also we overview.
+And we'll add that as a new column
+called parsed_time in our data frame.
+So when we look at that datatype it will now be M8.
+And if we get the top five we'll see
+that it's actually, Python knows how to render it
+as a year, month, day,
+and a 24 hour date format by default.
+We can tell this function to take a column as input,
+just to review tags timestamp,
+and convert it into a datetime.
+In this case the format is M8
+even though if it's a weird name it's just a datatype name.
+Notice that the new column parsed_time,
+the timestamp it appears in a human-readable way here.
+In contrast the original timestamp was just an integer.
+Okay.
+Once we have converted to time
+to a human-readable format we can now create filters
+using timestamps we understand and select rows of interest.
+What's a timestamp we understand?
+For example, just a time: year, month, day format.
+Here we say greater than t, we are creating a filter.
+We are selecting that parsed time from tags
+and checking if it's after, or greater than, this date.
+And then we'll create a new
+frame on this by
+applying the greater than t signal
+to our tags dataframe, and we can see
+that initially in tags there were
+about 465 thousand rows
+with those five columns: userId,
+movieId, tag, timestamp parsed_time.
+And the selected rows has 12 thousand something
+rows in it with the exact same columns.
+That means about 12 thousand
+one hundred 30 of those
+original 465 thousand values
+were added after 2015 February first.
+We can also sort rows in chronological order
+so that the data flows from the beginning of time
+as it was recorded, and the users can see
+the chronological order in this frame.
+So we'll say tags are frame, sort values by parsed_time.
+Parsed_time was our new column here
+in ascending form, and give us the top ten values in there.
+We could see that the original data started
+in two thousand five, and the time is growing from then.
+If you remember 12 thousand of that was after 2015.
+With this knowledge you now have resources
+to tackle UNIX timestamps in your data signs projects.
+Let's now go back to our notebook, Pandas notebook,
+and see maybe average movie ratings over time.
+Are movie ratings related to the year of launch
+is a question you might answer, right?
+Here we have average ratings.
+If you would remember this will be
+the average ratings frame movie id rating.
+For each movie we had the averages.
+And then we can now merge this average rating
+with the movie id and create
+a correlation value between movie id and the rating.
+Now,
+we can create yearly averages by grouping
+by over year on that join table.
+We were joining it, and we have the years in there as well.
+If it select the top five we see
+the year of the movie
+and the ratings for that movie,
+but only based on the year.
+So now if you take a yearly average plot here,
+we'll see that some years look better
+for box office movies than others,
+but one year is particularly good.
+Does that seem like an outlier to you in some sense.
+Yes, and by really successfully
+combining everything we learned about filtering,
+about joining, about counting, averaging,
+adding the columns,
+we were able to really start generating that insight
+to analyze what years were better years
+to make movies, how they affected our ratings
+over time and things like that.
+So I'll leave you with this graph
+to think of other ways to see correlations
+within those values and plot different aspects,
+different features in our data set before we move on
+with more advanced Pandas examples in the next lesson.
+Hope you enjoyed this example.
+We will now have a small video to wrap up our lesson
+of our introduction to Pandas.
