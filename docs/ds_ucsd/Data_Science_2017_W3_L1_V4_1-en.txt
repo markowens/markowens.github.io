@@ -1,6 +1,0 @@
-- You are now in pretty good shape to work
-with notebooks already.
-But let me walk through a few more useful practices.
-By the end of this video you should be able
-to manage your Jupyter notebook files
-and share notebooks with your team.

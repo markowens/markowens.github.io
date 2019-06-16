@@ -1,5 +1,10 @@
 jupyter kernelspec list
 jupyter kernelspec remove java
+
+IJava:
+
 IJava Github: https://github.com/SpencerPark/IJava
+Requires jdk 9+
+
 
 
