@@ -22,6 +22,10 @@ class Hand:
     def get(self, pos):
         return self.cards[pos]
 
+    def set(self, cardlist):
+        for c in cardlist:
+            self.cards.append(Card(c[0], c[1]))
+
 
     # def ranks(self):
     #     if not self.init:
@@ -40,7 +44,8 @@ def run():
     print(f'card1 - rank/suit/val: {card1} - {card1.rank}/{card1.suit}/{card1.val()}')
     print(f'card2 - rank/suit/val: {card2} - {card2.rank}/{card2.suit}/{card2.val()}')
 
-    hand = Hand(['AS', 'TD', '2C', '6S', 'QD'])
+    hand = Hand([])
+    hand.set(['AS', 'TD', '2C', '6S', 'QD'])
     print(f'hand: {hand}')
     print(f'hand[0]: {hand.get(0)}')
     print(f'hand[2]: {hand.get(2)}')
