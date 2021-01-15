@@ -28,7 +28,7 @@
 - [Joseph Ellis](https://www.youtube.com/channel/UCHg1eHVqxh0mY7iApQfGDGA)
 - [Joe Edelman](https://www.youtube.com/user/PhotoJoeEdelman/videos)
 - [ImageSpaceTV](https://www.youtube.com/user/OlympusUKTV/videos)
-<hr/>
+- 
 - [James Popsys](https://www.youtube.com/channel/UC6WYZrzBuNQnz_2F4EqjhDQ)
 - [Jamie Windsor](https://www.youtube.com/user/jamiewindsor/videos)
 - [PhotoJoseph](https://www.youtube.com/user/jlinaschke)
@@ -38,9 +38,11 @@
 - [Gerald Undone](https://www.youtube.com/channel/UC09qASY4ixFS-KXIH6Nw0rg/videos)
 - [Jiggie Alejandrino](https://www.youtube.com/channel/UC1KmIrDOldAZ14UtLojHS9w/videos)
 - [Mads Peter Iverson](https://www.youtube.com/channel/UCrWU2BpF6zvRFnkYHDDYHDg/videos)
-<hr/>
+- 
 - [Photofocus](https://www.youtube.com/user/photofoustv/videos)
-<hr/>
+- [B&H Camera](https://www.youtube.com/user/BHPhotoVideoProAudio/videos)
+- [Adorama](https://www.youtube.com/user/adoramaTV/videos)
+- 
 - [Camera Conspiracies](https://www.youtube.com/channel/UCwxgo62w72LxZDA1fTibdYg)
 - [Vegetable Police](https://www.youtube.com/user/canadianwargod)
 
