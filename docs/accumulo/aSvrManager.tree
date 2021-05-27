@@ -1,0 +1,133 @@
+manager/src/main/java
+`-- org
+    `-- apache
+        `-- accumulo
+            |-- manager
+            |   |-- EventCoordinator.java
+            |   |-- FateServiceHandler.java
+            |   |-- Manager.java
+            |   |-- ManagerClientServiceHandler.java
+            |   |-- ManagerExecutable.java
+            |   |-- ManagerTime.java
+            |   |-- MasterExecutable.java
+            |   |-- TabletGroupWatcher.java
+            |   |-- metrics
+            |   |   |-- ManagerMetrics.java
+            |   |   |-- ManagerMetricsFactory.java
+            |   |   |-- ReplicationMetrics.java
+            |   |   `-- fate
+            |   |       |-- FateMetricValues.java
+            |   |       `-- FateMetrics.java
+            |   |-- recovery
+            |   |   `-- RecoveryManager.java
+            |   |-- replication
+            |   |   |-- DistributedWorkQueueWorkAssigner.java
+            |   |   |-- FinishedWorkUpdater.java
+            |   |   |-- ManagerReplicationCoordinator.java
+            |   |   |-- RemoveCompleteReplicationRecords.java
+            |   |   |-- ReplicationDriver.java
+            |   |   |-- SequentialWorkAssigner.java
+            |   |   |-- StatusMaker.java
+            |   |   |-- UnorderedWorkAssigner.java
+            |   |   |-- WorkDriver.java
+            |   |   `-- WorkMaker.java
+            |   |-- state
+            |   |   |-- MergeStats.java
+            |   |   |-- SetGoalState.java
+            |   |   |-- TableCounts.java
+            |   |   `-- TableStats.java
+            |   |-- tableOps
+            |   |   |-- ChangeTableState.java
+            |   |   |-- ManagerRepo.java
+            |   |   |-- TableInfo.java
+            |   |   |-- TraceRepo.java
+            |   |   |-- Utils.java
+            |   |   |-- bulkVer1
+            |   |   |   |-- BulkImport.java
+            |   |   |   |-- CleanUpBulkImport.java
+            |   |   |   |-- CompleteBulkImport.java
+            |   |   |   |-- CopyFailed.java
+            |   |   |   `-- LoadFiles.java
+            |   |   |-- bulkVer2
+            |   |   |   |-- BulkImportMove.java
+            |   |   |   |-- BulkInfo.java
+            |   |   |   |-- CleanUpBulkImport.java
+            |   |   |   |-- CompleteBulkImport.java
+            |   |   |   |-- LoadFiles.java
+            |   |   |   `-- PrepBulkImport.java
+            |   |   |-- clone
+            |   |   |   |-- CloneInfo.java
+            |   |   |   |-- CloneMetadata.java
+            |   |   |   |-- ClonePermissions.java
+            |   |   |   |-- CloneTable.java
+            |   |   |   |-- CloneZookeeper.java
+            |   |   |   `-- FinishCloneTable.java
+            |   |   |-- compact
+            |   |   |   |-- CompactRange.java
+            |   |   |   |-- CompactionDriver.java
+            |   |   |   `-- cancel
+            |   |   |       |-- CancelCompactions.java
+            |   |   |       `-- FinishCancelCompaction.java
+            |   |   |-- create
+            |   |   |   |-- ChooseDir.java
+            |   |   |   |-- CreateTable.java
+            |   |   |   |-- FinishCreateTable.java
+            |   |   |   |-- PopulateMetadata.java
+            |   |   |   |-- PopulateZookeeper.java
+            |   |   |   `-- SetupPermissions.java
+            |   |   |-- delete
+            |   |   |   |-- CleanUp.java
+            |   |   |   `-- DeleteTable.java
+            |   |   |-- merge
+            |   |   |   |-- TableRangeOp.java
+            |   |   |   `-- TableRangeOpWait.java
+            |   |   |-- namespace
+            |   |   |   |-- create
+            |   |   |   |   |-- CreateNamespace.java
+            |   |   |   |   |-- FinishCreateNamespace.java
+            |   |   |   |   |-- NamespaceInfo.java
+            |   |   |   |   |-- PopulateZookeeperWithNamespace.java
+            |   |   |   |   `-- SetupNamespacePermissions.java
+            |   |   |   |-- delete
+            |   |   |   |   |-- DeleteNamespace.java
+            |   |   |   |   `-- NamespaceCleanUp.java
+            |   |   |   `-- rename
+            |   |   |       `-- RenameNamespace.java
+            |   |   |-- rename
+            |   |   |   `-- RenameTable.java
+            |   |   |-- tableExport
+            |   |   |   |-- ExportInfo.java
+            |   |   |   |-- ExportTable.java
+            |   |   |   `-- WriteExportFiles.java
+            |   |   `-- tableImport
+            |   |       |-- CreateImportDir.java
+            |   |       |-- FinishImportTable.java
+            |   |       |-- ImportPopulateZookeeper.java
+            |   |       |-- ImportSetupPermissions.java
+            |   |       |-- ImportTable.java
+            |   |       |-- ImportedTableInfo.java
+            |   |       |-- MapImportFileNames.java
+            |   |       |-- MoveExportedFiles.java
+            |   |       `-- PopulateMetadataTable.java
+            |   |-- tserverOps
+            |   |   `-- ShutdownTServer.java
+            |   |-- upgrade
+            |   |   |-- RenameMasterDirInZK.java
+            |   |   |-- UpgradeCoordinator.java
+            |   |   |-- Upgrader.java
+            |   |   |-- Upgrader8to9.java
+            |   |   `-- Upgrader9to10.java
+            |   `-- util
+            |       |-- FateAdmin.java
+            |       `-- TableValidators.java
+            `-- master
+                |-- Master.java
+                |-- replication
+                |   `-- UnorderedWorkAssigner.java
+                |-- state
+                |   |-- MergeStats.java
+                |   `-- SetGoalState.java
+                `-- util
+                    `-- FateAdmin.java
+
+32 directories, 98 files
